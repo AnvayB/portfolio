@@ -86,10 +86,10 @@ export const HeroSection = () => {
 
   // this one is slightly less snappy
   useEffect(() => {
-  const id = setInterval(() =>
-    setCurrentRoleIndex(i => (i + 1) % roles.length), 3200);
-  return () => clearInterval(id);
-}, [roles.length]);
+    const id = setInterval(() =>
+      setCurrentRoleIndex(i => (i + 1) % roles.length), 3200);
+    return () => clearInterval(id);
+  }, [roles.length]);
 
 
   // Variants for smooth crossfade + slight vertical drift and blur
@@ -112,9 +112,26 @@ export const HeroSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center bg-mesh overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center gap-8 bg-mesh overflow-hidden"
       id="hero"
     >
+
+      {/* Profile Image */}
+      <motion.div
+        className="relative"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+
+        <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary/20 glow-primary mx-auto mt-8">
+          <img
+            src="/src/images/face-left.jpg"
+            alt="Profile"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </motion.div>
       {/* 3D Canvas Background */}
       <div className="absolute inset-0 z-0">
         <Canvas
@@ -134,21 +151,7 @@ export const HeroSection = () => {
           />
         </Canvas>
       </div>
-      {/* Profile Image */}
-      <motion.div
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      >
-        <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary/20 glow-primary">
-          <img
-            src="/src/images/face-left.jpg" 
-            alt="Profile"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </motion.div>
+
 
       {/* Content Overlay */}
       <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
@@ -157,7 +160,7 @@ export const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <h1 className="text-6xl md:text-8xl font-display font-bold mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 leading-tight">
             <br />
             {/* ⬇️ Smooth crossfade between roles */}
             <div className="inline-grid align-top">

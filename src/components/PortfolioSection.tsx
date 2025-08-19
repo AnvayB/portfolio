@@ -109,10 +109,14 @@ export const PortfolioSection = () => {
               >
                 <Card className="glass border-border/50 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:glow-primary">
                   <div className="relative overflow-hidden">
-                    <img
+                    <motion.img
                       src={item.image}
                       alt={item.title}
                       className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 0.5 }}
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
