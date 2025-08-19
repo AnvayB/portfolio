@@ -3,65 +3,9 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Calendar, MapPin, Building } from 'lucide-react';
+import experienceData from '../data.json';
 
-const experiences = [
-  {
-    id: 1,
-    title: 'Senior Data Scientist',
-    company: 'TechCorp Inc.',
-    location: 'San Francisco, CA',
-    period: '2022 - Present',
-    description: 'Led a team of 5 data scientists in developing ML models for predictive analytics. Implemented advanced algorithms resulting in 25% improvement in model accuracy and $2M annual cost savings.',
-    achievements: [
-      'Deployed 15+ ML models to production',
-      'Reduced model training time by 60%',
-      'Led cross-functional team of 12 members',
-    ],
-    tags: ['Python', 'TensorFlow', 'AWS', 'Docker', 'Kubernetes'],
-  },
-  {
-    id: 2,
-    title: 'Full-Stack Developer',
-    company: 'StartupXYZ',
-    location: 'New York, NY',
-    period: '2020 - 2022',
-    description: 'Developed scalable web applications serving 100K+ users. Built microservices architecture and implemented CI/CD pipelines, reducing deployment time by 80%.',
-    achievements: [
-      'Built 8 major features from scratch',
-      'Improved application performance by 40%',
-      'Mentored 3 junior developers',
-    ],
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Redis', 'GraphQL'],
-  },
-  {
-    id: 3,
-    title: 'Data Engineer',
-    company: 'DataFlow Solutions',
-    location: 'Seattle, WA',
-    period: '2018 - 2020',
-    description: 'Designed and maintained ETL pipelines processing 50GB+ daily data. Optimized database queries and implemented real-time streaming solutions using Apache Kafka.',
-    achievements: [
-      'Reduced data processing time by 70%',
-      'Built 12 automated data pipelines',
-      'Improved data quality scores by 35%',
-    ],
-    tags: ['Apache Spark', 'Kafka', 'Airflow', 'Snowflake', 'Python'],
-  },
-  {
-    id: 4,
-    title: 'Data Analyst',
-    company: 'Analytics Pro',
-    location: 'Austin, TX',
-    period: '2016 - 2018',
-    description: 'Created comprehensive dashboards and reports for C-level executives. Performed statistical analysis and A/B testing, driving data-informed business decisions.',
-    achievements: [
-      'Delivered 50+ analytical reports',
-      'Increased conversion rates by 15%',
-      'Automated 80% of reporting processes',
-    ],
-    tags: ['SQL', 'Tableau', 'R', 'Excel', 'Statistics'],
-  },
-];
+const experiences = experienceData.experiences;
 
 export const ExperienceSection = () => {
   const sectionRef = useRef<HTMLElement>(null);

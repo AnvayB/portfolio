@@ -68,7 +68,7 @@ export const Navigation = () => {
               whileHover={{ scale: 1.05 }}
               onClick={() => scrollToSection('hero')}
             >
-              Portfolio
+              Anvay Bhanap
             </motion.div>
 
             {/* Desktop Navigation */}

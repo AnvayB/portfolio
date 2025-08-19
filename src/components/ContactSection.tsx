@@ -9,6 +9,7 @@ import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
 import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
+import data from '../data.json';
 
 // 3D Background Component
 function ContactBackground() {
@@ -55,43 +56,26 @@ function ContactBackground() {
   );
 }
 
-const contactInfo = [
-  {
-    icon: Mail,
-    label: 'Email',
-    value: 'hello@yourname.com',
-    href: 'mailto:hello@yourname.com',
-  },
-  {
-    icon: Phone,
-    label: 'Phone',
-    value: '+1 (555) 123-4567',
-    href: 'tel:+15551234567',
-  },
-  {
-    icon: MapPin,
-    label: 'Location',
-    value: 'San Francisco, CA',
-    href: '#',
-  },
-];
+const contactInfo = data.contactInfo.map(item => ({
+  ...item,
+  icon: {
+    Mail,
+    Phone,
+    MapPin
+  }[item.icon]
+}));
 
 const socialLinks = [
   {
     icon: Linkedin,
     name: 'LinkedIn',
-    href: 'https://linkedin.com/in/yourname',
+    href: 'https://linkedin.com/in/AnvayB',
   },
   {
     icon: Github,
     name: 'GitHub',
-    href: 'https://github.com/yourname',
-  },
-  {
-    icon: Twitter,
-    name: 'Twitter',
-    href: 'https://twitter.com/yourname',
-  },
+    href: 'https://github.com/AnvayB',
+  }
 ];
 
 export const ContactSection = () => {

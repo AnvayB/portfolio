@@ -4,69 +4,9 @@ import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { ExternalLink, Github } from 'lucide-react';
+import portfolioData from '../data.json';
 
-const portfolioItems = [
-  {
-    id: 1,
-    title: 'Customer Churn Prediction',
-    category: 'Data Analyst',
-    description: 'Advanced machine learning model predicting customer churn with 94% accuracy using ensemble methods and feature engineering.',
-    image: '/api/placeholder/400/300',
-    tags: ['Python', 'Scikit-learn', 'Pandas', 'Tableau'],
-    link: '#',
-    github: '#',
-  },
-  {
-    id: 2,
-    title: 'Real-time Data Pipeline',
-    category: 'Data Engineering',
-    description: 'Scalable ETL pipeline processing 10M+ records daily using Apache Kafka, Spark, and cloud infrastructure.',
-    image: '/api/placeholder/400/300',
-    tags: ['Apache Kafka', 'Spark', 'AWS', 'Docker'],
-    link: '#',
-    github: '#',
-  },
-  {
-    id: 3,
-    title: 'E-commerce Platform',
-    category: 'Full-Stack',
-    description: 'Modern e-commerce solution with React, Node.js, and microservices architecture supporting 100K+ concurrent users.',
-    image: '/api/placeholder/400/300',
-    tags: ['React', 'Node.js', 'MongoDB', 'Kubernetes'],
-    link: '#',
-    github: '#',
-  },
-  {
-    id: 4,
-    title: 'Financial Analytics Dashboard',
-    category: 'Data Analyst',
-    description: 'Interactive dashboard providing real-time insights into portfolio performance and market trends.',
-    image: '/api/placeholder/400/300',
-    tags: ['D3.js', 'Python', 'PostgreSQL', 'Plotly'],
-    link: '#',
-    github: '#',
-  },
-  {
-    id: 5,
-    title: 'ML Model Deployment Platform',
-    category: 'Data Engineering',
-    description: 'MLOps platform automating model training, validation, and deployment with CI/CD integration.',
-    image: '/api/placeholder/400/300',
-    tags: ['MLflow', 'Docker', 'Jenkins', 'FastAPI'],
-    link: '#',
-    github: '#',
-  },
-  {
-    id: 6,
-    title: 'Social Media Analytics',
-    category: 'Full-Stack',
-    description: 'Full-stack application analyzing social media trends with sentiment analysis and viral prediction.',
-    image: '/api/placeholder/400/300',
-    tags: ['Vue.js', 'FastAPI', 'NLP', 'Redis'],
-    link: '#',
-    github: '#',
-  },
-];
+const portfolioItems = portfolioData.portfolioItems;
 
 const categories = ['All', 'Data Analyst', 'Data Engineering', 'Full-Stack'];
 

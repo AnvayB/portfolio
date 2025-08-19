@@ -3,39 +3,9 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { GraduationCap, Award, BookOpen } from 'lucide-react';
+import educationData from '../data.json';
 
-const education = [
-  {
-    id: 1,
-    degree: 'Master of Science in Data Science',
-    institution: 'Stanford University',
-    location: 'Stanford, CA',
-    period: '2014 - 2016',
-    gpa: '3.9/4.0',
-    description: 'Specialized in machine learning, statistical modeling, and big data analytics. Thesis on "Deep Learning Applications in Financial Markets."',
-    achievements: [
-      'Dean\'s List - 4 consecutive semesters',
-      'Graduate Research Assistant',
-      'Published 2 research papers',
-    ],
-    coursework: ['Machine Learning', 'Statistical Computing', 'Data Mining', 'Deep Learning'],
-  },
-  {
-    id: 2,
-    degree: 'Bachelor of Science in Computer Science',
-    institution: 'UC Berkeley',
-    location: 'Berkeley, CA',
-    period: '2010 - 2014',
-    gpa: '3.8/4.0',
-    description: 'Comprehensive foundation in computer science with focus on algorithms, data structures, and software engineering principles.',
-    achievements: [
-      'Magna Cum Laude',
-      'CS Honors Program',
-      'Teaching Assistant for Data Structures',
-    ],
-    coursework: ['Algorithms', 'Database Systems', 'Software Engineering', 'Computer Networks'],
-  },
-];
+const education = educationData.education;
 
 const certifications = [
   {

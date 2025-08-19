@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber';
 import { Float, Text3D, OrbitControls, Sparkles } from '@react-three/drei';
-import { useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion'; // ⬅️ added AnimatePresence
 import { Button } from './ui/button';
 import { ArrowDown } from 'lucide-react';
 
@@ -69,6 +69,46 @@ export const HeroSection = () => {
     nextSection?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const roles = [
+    { first: 'Data', second: 'Analyst' },
+    { first: 'Data', second: 'Engineer' },
+    { first: 'Full-Stack', second: 'Developer' }
+  ];
+
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
+  //   }, 3200); // ⬅️ slightly longer cycle to allow full out/in animations
+  //   return () => clearInterval(interval);
+  // }, [roles.length]);
+
+  // this one is slightly less snappy
+  useEffect(() => {
+  const id = setInterval(() =>
+    setCurrentRoleIndex(i => (i + 1) % roles.length), 3200);
+  return () => clearInterval(id);
+}, [roles.length]);
+
+
+  // Variants for smooth crossfade + slight vertical drift and blur
+  const roleVariants = {
+    initial: { opacity: 0, y: 8, filter: 'blur(4px)' },
+    animate: {
+      opacity: 1,
+      y: 0,
+      filter: 'blur(0px)',
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } // easeOutExpo-like
+    },
+    exit: {
+      opacity: 0,
+      y: -8,
+      filter: 'blur(4px)',
+      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] }
+    }
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -102,20 +142,32 @@ export const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <h1 className="text-6xl md:text-8xl font-display font-bold mb-6">
-            <span className="text-gradient">Creative</span>
+          <h1 className="text-6xl md:text-8xl font-display font-bold mb-6 leading-tight">
             <br />
-            <span className="text-foreground">Developer</span>
+            {/* ⬇️ Smooth crossfade between roles */}
+            <div className="inline-grid align-top">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.span
+                  key={currentRoleIndex}
+                  initial={{ opacity: 0, y: 8, filter: 'blur(4px)' }}
+                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }}
+                  exit={{ opacity: 0, y: -8, filter: 'blur(4px)', transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }}
+                  className="col-start-1 row-start-1 whitespace-nowrap"
+                >
+                  <span className="text-gradient">{roles[currentRoleIndex].first}</span>{' '}
+                  <span className="text-foreground">{roles[currentRoleIndex].second}</span>
+                </motion.span>
+              </AnimatePresence>
+            </div>
           </h1>
-          
+
           <motion.p
             className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
           >
-            Crafting immersive digital experiences through data science, 
-            engineering, and full-stack development
+            I don’t just work with data; I design experiences around it.
           </motion.p>
 
           <motion.div
@@ -132,7 +184,7 @@ export const HeroSection = () => {
             >
               Explore Work
             </Button>
-            
+
             <Button
               variant="outline"
               size="lg"
