@@ -134,6 +134,21 @@ export const HeroSection = () => {
           />
         </Canvas>
       </div>
+      {/* Profile Image */}
+      <motion.div
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary/20 glow-primary">
+          <img
+            src="/src/images/face-left.jpg" 
+            alt="Profile"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </motion.div>
 
       {/* Content Overlay */}
       <div className="relative z-10 text-center max-w-4xl mx-auto px-6">

@@ -8,7 +8,7 @@ import { data } from '../data.ts';
 
 const portfolioItems = data.portfolioItems;
 
-const categories = ['All', 'Data Analyst', 'Data Engineering', 'Data Science', 'Full-Stack'];
+const categories = ['All', 'Data Analytics', 'Data Engineering', 'Data Science', 'Full-Stack'];
 
 export const PortfolioSection = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -116,26 +116,30 @@ export const PortfolioSection = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Button
-                        size="sm"
-                        variant="ghost"
-                        className="bg-background/80 hover:bg-background"
-                        asChild
-                      >
-                        {/* <a href={item.link} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="w-4 h-4" />
-                        </a> */}
-                      </Button>
-                      <Button
-                        size="sm"
-                        variant="ghost"
-                        className="bg-background/80 hover:bg-background"
-                        asChild
-                      >
-                        <a href={item.github} target="_blank" rel="noopener noreferrer">
-                          <Github className="w-4 h-4" />
-                        </a>
-                      </Button>
+                      {item.link && (
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          className="bg-background/80 hover:bg-background"
+                          asChild
+                        >
+                          <a href={item.link} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="w-4 h-4" />
+                          </a>
+                        </Button>
+                      )}
+                      {item.github && (
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          className="bg-background/80 hover:bg-background"
+                          asChild
+                        >
+                          <a href={item.github} target="_blank" rel="noopener noreferrer">
+                            <Github className="w-4 h-4" />
+                          </a>
+                        </Button>
+                      )}
                     </div>
                   </div>
                   

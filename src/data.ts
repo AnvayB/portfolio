@@ -67,6 +67,7 @@ export const data = {
       description: "Developed ML pipeline with feature engineering, applied ensemble models, and clustering to enhance prediction accuracy.",
       image: "/src/images/btt.png",
       tags: ["Pandas", "Scikit-learn", "XGBoost", "Random Forest", "K-Means", "DBSCAN"],
+      link: "",
       github: "https://github.com/AnvayB/BeyondTheTap"
     },
     {
@@ -75,7 +76,8 @@ export const data = {
       category: "Data Engineering",
       description: "Built scalable PySpark ML pipeline for big data processing, predicting U.S. flight delays and airline revenue losses.",
       image: "/src/images/skys.jpeg",
-      tags: ["Pandas", "Data Processing", "PySpark", "Apache MLlib", "Big Data Analytics"],
+      tags: ["Pandas", "Data Processing", "PySpark", "Apache MLlib", "Streamlit", "Big Data Analytics"],
+      link: "",
       github: "https://github.com/AnvayB/SkyStream"
     },
     {
@@ -85,8 +87,38 @@ export const data = {
       description: "Developed full-stack logistics platform, streamlining orders, PDF invoicing, email notifications, with scalable storage.",
       image: "/src/images/track.png",
       tags: ["TypeScript", "React", "Node.js", "AWS SES", "S3", "DynamoDB", "Microservices", "Leadership"],
+      link: "",
       github: "https://github.com/AnvayB/TrackFlow"
-    }
+    },
+    {
+      id: 4,
+      title: "San Francisco Crime Pattern Analysis",
+      category: "Data Engineering",
+      description: "Designed data pipelines to process historical and real-time crime data to identify crime patterns, temporal trends, and geographic distributions.",
+      image: "/src/images/sfcrime.png",
+      tags: ["Pandas", "Snowflake", "dbt", "Airflow", "Power BI", "Predictive Analytics"],
+      link: "https://drive.google.com/file/d/1wH0xzlh3snA5-PdfeY17hwcmski6wRpJ/view?usp=sharing",
+      github: ""
+    }, {
+      id: 5,
+      title: 'San Jose Traffic Collision Mapping',
+      category: 'Data Analytics',
+      description: 'Analyzed San Jose crash data to uncover causes, patterns, and danger zones, supporting traffic safety improvements and forecasting trends.',
+      image: '/src/images/sjtraffic.png',
+      tags: ['Pandas', 'Exploratory Data Analysis', 'Power BI', 'Tableau', 'Predictive Analytics'],
+      link: 'https://drive.google.com/file/d/1gYrVsR-a6yDgWmhT1kXBhwZabDU4MXhr/view?usp=sharing',
+      github: '',
+    },
+    {
+      id: 6,
+      title: 'Social Media Analytics',
+      category: 'Full-Stack',
+      description: 'Full-stack application analyzing social media trends with sentiment analysis and viral prediction.',
+      image: '/api/placeholder/400/300',
+      tags: ['Vue.js', 'FastAPI', 'NLP', 'Redis'],
+      link: '#',
+      github: '#',
+    },
   ],
   contactInfo: [
     {
