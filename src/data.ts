@@ -62,23 +62,30 @@ export const data = {
   portfolioItems: [
     {
       id: 1,
-      title: "Customer Churn Prediction",
-      category: "Data Analyst",
-      description: "Advanced machine learning model predicting customer churn with 94% accuracy using ensemble methods and feature engineering.",
-      image: "/api/placeholder/400/300",
-      tags: ["Python", "Scikit-learn", "Pandas", "Tableau"],
-      link: "#",
-      github: "#"
+      title: "Beyond the Tap – Water Quality Prediction in Bay Area",
+      category: "Data Science",
+      description: "Developed ML pipeline with feature engineering, applied ensemble models, and clustering to enhance prediction accuracy.",
+      image: "/src/images/btt.png",
+      tags: ["Pandas", "Scikit-learn", "XGBoost", "Random Forest", "K-Means", "DBSCAN"],
+      github: "https://github.com/AnvayB/BeyondTheTap"
     },
     {
       id: 2,
-      title: "Real-time Data Pipeline",
+      title: "SkyStream – Flight Delay & Economic Loss Prediction",
       category: "Data Engineering",
-      description: "Scalable ETL pipeline processing 10M+ records daily using Apache Kafka, Spark, and cloud infrastructure.",
-      image: "/api/placeholder/400/300",
-      tags: ["Apache Kafka", "Spark", "AWS", "Docker"],
-      link: "#",
-      github: "#"
+      description: "Built scalable PySpark ML pipeline for big data processing, predicting U.S. flight delays and airline revenue losses.",
+      image: "/src/images/skys.jpeg",
+      tags: ["Pandas", "Data Processing", "PySpark", "Apache MLlib", "Big Data Analytics"],
+      github: "https://github.com/AnvayB/SkyStream"
+    },
+    {
+      id: 3,
+      title: "TrackFlow – Logistics and Order Management Platform",
+      category: "Full-Stack",
+      description: "Developed full-stack logistics platform, streamlining orders, PDF invoicing, email notifications, with scalable storage.",
+      image: "/src/images/track.png",
+      tags: ["TypeScript", "React", "Node.js", "AWS SES", "S3", "DynamoDB", "Microservices", "Leadership"],
+      github: "https://github.com/AnvayB/TrackFlow"
     }
   ],
   contactInfo: [

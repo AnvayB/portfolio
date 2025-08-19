@@ -8,7 +8,7 @@ import { data } from '../data.ts';
 
 const portfolioItems = data.portfolioItems;
 
-const categories = ['All', 'Data Analyst', 'Data Engineering', 'Full-Stack'];
+const categories = ['All', 'Data Analyst', 'Data Engineering', 'Data Science', 'Full-Stack'];
 
 export const PortfolioSection = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -122,9 +122,9 @@ export const PortfolioSection = () => {
                         className="bg-background/80 hover:bg-background"
                         asChild
                       >
-                        <a href={item.link} target="_blank" rel="noopener noreferrer">
+                        {/* <a href={item.link} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="w-4 h-4" />
-                        </a>
+                        </a> */}
                       </Button>
                       <Button
                         size="sm"
