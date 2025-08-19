@@ -1,73 +1,144 @@
-# Welcome to your Lovable project
+# 🚀 Awwwards-Style Portfolio
 
-## Project info
+A cutting-edge portfolio website featuring immersive 3D elements, smooth animations, and modern design principles. Built with React, Three.js, and advanced web technologies.
 
-**URL**: https://lovable.dev/projects/2bdb328c-ffb7-4534-b110-3e1f1491bfeb
+## ✨ Features
 
-## How can I edit this code?
+- **3D Interactive Elements**: Floating text, particle systems, and distorted spheres using React Three Fiber
+- **Smooth Animations**: Framer Motion-powered transitions with custom timing functions
+- **Responsive Design**: Mobile-first approach with beautiful layouts on all devices
+- **Performance Optimized**: Lazy loading, efficient rendering, and minimal bundle size
+- **Modern Design System**: Dark theme with cyan/purple gradients and glass morphism effects
+- **Filterable Portfolio**: Dynamic project filtering with smooth transitions
+- **Interactive Timeline**: Professional experience with elegant animations
+- **Contact Form**: Functional form with 3D background elements
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+- **Frontend**: React 18, TypeScript, Vite
+- **3D Graphics**: React Three Fiber, Three.js, Drei
+- **Animations**: Framer Motion, GSAP
+- **Styling**: Tailwind CSS, Custom Design System
+- **UI Components**: shadcn/ui, Radix UI
+- **Icons**: Lucide React
+- **Build Tool**: Vite with SWC
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/2bdb328c-ffb7-4534-b110-3e1f1491bfeb) and start prompting.
+## 📁 Project Structure
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+src/
+├── components/
+│   ├── ui/                 # Reusable UI components
+│   ├── HeroSection.tsx     # 3D hero with floating text
+│   ├── Navigation.tsx      # Animated navigation bar
+│   ├── PortfolioSection.tsx # Filterable project grid
+│   ├── ExperienceSection.tsx # Timeline with achievements
+│   ├── EducationSection.tsx # Academic background & certs
+│   └── ContactSection.tsx  # Contact form with 3D bg
+├── pages/
+│   ├── Index.tsx          # Main portfolio page
+│   ├── Portfolio.tsx      # Portfolio layout
+│   └── NotFound.tsx       # 404 error page
+├── hooks/
+│   ├── use-mobile.tsx     # Mobile detection hook
+│   └── use-toast.ts       # Toast notifications
+├── lib/
+│   └── utils.ts           # Utility functions
+├── index.css              # Design system & global styles
+└── main.tsx               # App entry point
 ```
 
-**Edit a file directly in GitHub**
+## 🎨 Design System
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+The portfolio uses a comprehensive design system with:
 
-**Use GitHub Codespaces**
+- **Colors**: HSL-based color palette with cyan/purple gradients
+- **Typography**: Inter font family with display and body variants
+- **Animations**: Custom keyframes and timing functions
+- **Effects**: Glass morphism, glows, and backdrop blur
+- **Responsive**: Mobile-first breakpoints and fluid typography
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🚀 Quick Start
 
-## What technologies are used for this project?
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd portfolio
+   ```
 
-This project is built with:
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
 
-## How can I deploy this project?
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
 
-Simply open [Lovable](https://lovable.dev/projects/2bdb328c-ffb7-4534-b110-3e1f1491bfeb) and click on Share -> Publish.
+## 🎯 Customization Guide
 
-## Can I connect a custom domain to my Lovable project?
+### Colors & Branding
+Edit `src/index.css` to customize the color palette:
+```css
+:root {
+  --primary: 185 90% 55%;        /* Main brand color */
+  --secondary: 280 90% 70%;      /* Secondary color */
+  --background: 240 10% 3.9%;    /* Background */
+  --foreground: 0 0% 98%;        /* Text color */
+}
+```
 
-Yes, you can!
+### Content
+1. **Hero Section**: Update name and tagline in `HeroSection.tsx`
+2. **Portfolio Items**: Modify the `portfolioItems` array in `PortfolioSection.tsx`
+3. **Experience**: Update the `experiences` array in `ExperienceSection.tsx`
+4. **Education**: Modify the `education` and `certifications` arrays
+5. **Contact Info**: Update contact details in `ContactSection.tsx`
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### 3D Elements
+- **Particles**: Adjust count and behavior in `HeroSection.tsx`
+- **Floating Text**: Modify 3D text properties and animations
+- **Background Spheres**: Customize distortion and materials in `ContactSection.tsx`
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Animations
+- **Timing**: Modify easing functions in `tailwind.config.ts`
+- **Delays**: Adjust stagger delays in component animations
+- **Keyframes**: Add custom animations in `index.css`
+
+## 📱 Mobile Optimization
+
+- Responsive 3D elements with performance considerations
+- Touch-friendly navigation and interactions
+- Optimized animations for mobile devices
+- Fallback experiences for lower-end devices
+
+## 🔧 Performance Tips
+
+1. **Image Optimization**: Use modern formats (WebP, AVIF)
+2. **Lazy Loading**: Implement for non-critical sections
+3. **3D Optimization**: Reduce polygon count for mobile
+4. **Bundle Splitting**: Code splitting for route-based chunks
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](../../issues).
+
+## 📞 Contact
+
+- **Email**: hello@yourname.com
+- **LinkedIn**: [Your LinkedIn](https://linkedin.com/in/yourname)
+- **GitHub**: [Your GitHub](https://github.com/yourname)
+
+---
+
+Built with ❤️ using React, Three.js, and modern web technologies.

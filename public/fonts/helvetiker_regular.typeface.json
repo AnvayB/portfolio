@@ -1,0 +1,49 @@
+{
+  "glyphs": {
+    "A": {
+      "ha": 1389,
+      "x_min": 0,
+      "x_max": 1389,
+      "o": "m 694 1462 l 563 1151 l 825 1151 l 694 1462 m 277 0 l 277 309 l 555 958 l 833 958 l 1111 309 l 1111 0 l 902 0 l 833 231 l 555 231 l 486 0 l 277 0 "
+    },
+    "B": {
+      "ha": 1389,
+      "x_min": 0,
+      "x_max": 1389,
+      "o": "m 138 0 l 138 1462 l 833 1462 q 1111 1236 1111 972 q 1041 847 972 847 q 1111 694 1111 486 q 902 0 625 0 l 138 0 m 347 347 l 625 347 q 763 486 763 625 q 625 764 486 764 l 347 764 l 347 347 m 347 1115 l 347 1115 l 694 1115 q 833 972 833 833 q 694 694 555 694 l 347 694 l 347 1115 "
+    },
+    "C": {
+      "ha": 1500,
+      "x_min": 125,
+      "x_max": 1375,
+      "o": "m 1291 347 q 1291 208 1180 104 q 958 0 750 0 q 458 208 292 458 q 125 958 125 1250 q 292 1958 458 1958 q 750 1875 958 1750 q 1180 1597 1291 1458 l 1013 1319 q 889 1458 750 1500 q 542 1347 417 1180 q 375 958 375 750 q 417 417 542 292 q 750 167 889 125 q 1097 292 1222 417 q 1375 750 1375 958 l 1291 347 "
+    }
+  },
+  "familyName": "Helvetiker",
+  "ascender": 1462,
+  "descender": 0,
+  "underlinePosition": -125,
+  "underlineThickness": 50,
+  "boundingBox": {
+    "yMin": -431,
+    "xMin": -166,
+    "yMax": 1462,
+    "xMax": 2333
+  },
+  "resolution": 1000,
+  "original_font_information": {
+    "format": 0,
+    "copyright": "Copyright (c) 2008 by Max Hauser. All rights reserved.",
+    "fontFamily": "Helvetiker",
+    "fontSubfamily": "Regular",
+    "uniqueID": "Max Hauser: Helvetiker Regular: 2008",
+    "fullName": "Helvetiker",
+    "version": "Version 1.0",
+    "postScriptName": "Helvetiker",
+    "trademark": "",
+    "manufacturer": "Max Hauser",
+    "designer": "Max Hauser",
+    "vendorURL": "",
+    "designerURL": ""
+  }
+}
