@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { GraduationCap, Award, BookOpen } from 'lucide-react';
-import educationData from '../data.json';
+import { data } from '../data.ts';
 
-const education = educationData.education;
+const education = data.education;
 
 const certifications = [
   {
@@ -79,7 +79,7 @@ export const EducationSection = () => {
             <span className="text-foreground"> & Certifications</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Continuous learning and academic excellence in computer science and data science
+            CI/CD: Continuous Imagination and Continuous Development
           </p>
         </motion.div>
 
@@ -119,12 +119,13 @@ export const EducationSection = () => {
                           {edu.location} • {edu.period}
                         </p>
                       </div>
-                      <Badge
-                        variant="secondary"
-                        className="bg-primary/10 text-primary border-primary/20"
-                      >
-                        GPA: {edu.gpa}
-                      </Badge>
+                      <div className="w-20 h-20 flex-shrink-0">
+                        <img 
+                          src={edu.logo}
+                          alt={`${edu.institution} logo`}
+                          className="w-full h-full object-contain rounded-lg"
+                        />
+                      </div>
                     </div>
 
                     <p className="text-muted-foreground mb-4 leading-relaxed">

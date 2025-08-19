@@ -9,7 +9,7 @@ import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
 import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
-import data from '../data.json';
+import { data } from '../data.ts';
 
 // 3D Background Component
 function ContactBackground() {

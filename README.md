@@ -1,6 +1,4 @@
-# 🚀 Awwwards-Style Portfolio
-
-A cutting-edge portfolio website featuring immersive 3D elements, smooth animations, and modern design principles. Built with React, Three.js, and advanced web technologies.
+# Portfolio
 
 ## ✨ Features
 
@@ -57,30 +55,7 @@ The portfolio uses a comprehensive design system with:
 - **Animations**: Custom keyframes and timing functions
 - **Effects**: Glass morphism, glows, and backdrop blur
 - **Responsive**: Mobile-first breakpoints and fluid typography
-
-## 🚀 Quick Start
-
-1. **Clone the repository**
-   ```bash
-   git clone <your-repo-url>
-   cd portfolio
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Build for production**
-   ```bash
-   npm run build
-   ```
-
+<!-- 
 ## 🎯 Customization Guide
 
 ### Colors & Branding
@@ -123,22 +98,8 @@ Edit `src/index.css` to customize the color palette:
 1. **Image Optimization**: Use modern formats (WebP, AVIF)
 2. **Lazy Loading**: Implement for non-critical sections
 3. **3D Optimization**: Reduce polygon count for mobile
-4. **Bundle Splitting**: Code splitting for route-based chunks
+4. **Bundle Splitting**: Code splitting for route-based chunks -->
 
-## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
 
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](../../issues).
-
-## 📞 Contact
-
-- **Email**: hello@yourname.com
-- **LinkedIn**: [Your LinkedIn](https://linkedin.com/in/yourname)
-- **GitHub**: [Your GitHub](https://github.com/yourname)
-
----
-
-Built with ❤️ using React, Three.js, and modern web technologies.
+<!-- Request resume button that sends my resume to someone but they have to enter their email and it sends from my email so I know who's requested it -->

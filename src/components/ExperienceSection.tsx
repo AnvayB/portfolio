@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Calendar, MapPin, Building } from 'lucide-react';
-import experienceData from '../data.json';
+import { data } from '../data.ts';
 
-const experiences = experienceData.experiences;
+const experiences = data.experiences;
 
 export const ExperienceSection = () => {
   const sectionRef = useRef<HTMLElement>(null);

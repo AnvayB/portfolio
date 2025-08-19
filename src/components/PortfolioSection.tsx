@@ -4,9 +4,9 @@ import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { ExternalLink, Github } from 'lucide-react';
-import portfolioData from '../data.json';
+import { data } from '../data.ts';
 
-const portfolioItems = portfolioData.portfolioItems;
+const portfolioItems = data.portfolioItems;
 
 const categories = ['All', 'Data Analyst', 'Data Engineering', 'Full-Stack'];
 
