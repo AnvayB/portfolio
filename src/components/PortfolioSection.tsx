@@ -35,11 +35,15 @@ export const PortfolioSection = () => {
   }, []);
 
   useEffect(() => {
-    if (activeCategory === 'All') {
-      setFilteredItems(portfolioItems);
-    } else {
-      setFilteredItems(portfolioItems.filter(item => item.category === activeCategory));
-    }
+    const timeout = setTimeout(() => {
+      if (activeCategory === 'All') {
+        setFilteredItems(portfolioItems);
+      } else {
+        setFilteredItems(portfolioItems.filter(item => item.category === activeCategory));
+      }
+    }, 200); // Add a slight delay for smoother transition
+
+    return () => clearTimeout(timeout);
   }, [activeCategory]);
 
   return (
