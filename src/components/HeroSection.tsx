@@ -66,7 +66,7 @@ export const HeroSection = () => {
 
   const scrollToNext = () => {
     const nextSection = document.getElementById('portfolio');
-    nextSection?.scrollIntoView({ behavior: 'smooth' });
+    nextSection?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
   };
 
   const roles = [
