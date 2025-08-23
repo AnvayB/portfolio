@@ -79,7 +79,7 @@ export const EducationSection = () => {
             <span className="text-foreground"> & Certifications</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            CI/CD: Continuous Imagination and Continuous Development
+            Compiling Curiosity: Transforming learning into lasting expertise.
           </p>
         </motion.div>
 

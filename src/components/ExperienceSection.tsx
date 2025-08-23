@@ -47,8 +47,8 @@ export const ExperienceSection = () => {
             <span className="text-foreground">Professional </span>
             <span className="text-gradient">Journey</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A timeline of growth, innovation, and impact across diverse tech environments
+          <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+          ROI: Return on Innovation – Measured in impact, delivered through experience.
           </p>
         </motion.div>
 

@@ -32,32 +32,88 @@ export const data = {
   experiences: [
     {
       id: 1,
-      title: "Senior Data Scientist",
-      company: "TechCorp Inc.",
-      location: "San Francisco, CA",
-      period: "2022 - Present",
-      description: "Led a team of 5 data scientists in developing ML models for predictive analytics. Implemented advanced algorithms resulting in 25% improvement in model accuracy and $2M annual cost savings.",
+      title: "Full-Stack Engineer (Gen AI)",
+      company: "Stealth Startup",
+      location: "San Jose, CA",
+      period: "Nov. 2024 – Present",
+      description: "",
       achievements: [
-        "Deployed 15+ ML models to production",
-        "Reduced model training time by 60%",
-        "Led cross-functional team of 12 members"
+
       ],
-      tags: ["Python", "TensorFlow", "AWS", "Docker", "Kubernetes"]
+      tags: ["TypeScript", "React", "LangChain", "OpenAI", "Lovable", "Supabase"]
     },
     {
       id: 2,
-      title: "Full-Stack Developer",
-      company: "StartupXYZ",
-      location: "New York, NY",
-      period: "2020 - 2022",
-      description: "Developed scalable web applications serving 100K+ users. Built microservices architecture and implemented CI/CD pipelines, reducing deployment time by 80%.",
+      title: "Full-Stack Engineer",
+      company: "CMSJ",
+      location: "San Jose, CA",
+      period: "May – Aug. 2025",
+      description: "Developed and deployed full-stack SPA for real-time participant check-ins, with responsive UI, backend authentication, data pipelines, and automated CSV/XLSX exports.",
       achievements: [
-        "Built 8 major features from scratch",
-        "Improved application performance by 40%",
-        "Mentored 3 junior developers"
+        "Enabled seamless real-time check-ins across devices",
+        "Automated backend exports and state management",
+        "Scoped and delivered features with project manager"
       ],
-      tags: ["React", "Node.js", "PostgreSQL", "Redis", "GraphQL"]
+      tags: ["JavaScript", "Node.js", "Express", "Tailwind CSS", "Python", "Render"]
+    },
+    {
+      id: 3,
+      title: "Data Analyst Intern",
+      company: "Sdaemon Infotech",
+      location: "Pune, India",
+      period: "Jan. - Apr. 2025",
+      description: "Created Power BI dashboards and automated reporting systems to track revenue, receivables, and client performance, delivering real-time insights for 57 international clients.",
+      achievements: [
+        "Built and maintained Power BI dashboards for financial health tracking",
+        "Delivered real-time insights across 57 international clients",
+        "Automated reporting with dynamic filters for products, locations, and segments"
+      ],
+      tags: ["Power BI", "Microsoft SQL Server", "DAX", "Data Visualization", "Analytics"]
+    },
+    {
+      id: 4,
+      title: "Principal Web Developer",
+      company: "CHYK West",
+      location: "San Jose, CA",
+      period: "Dec. 2023 – Present",
+      description: "Led development of national CHYK West website for 8,500+ members, enhancing SEO/UX, modernizing legacy code, and increasing traffic by 200%.",
+      achievements: [
+        "Increased monthly traffic by 200% (17,700+ views)",
+        "Modernized codebase with secure JSON registration/payment forms",
+        "Improved navigation and brand consistency"
+      ],
+      tags: ["WordPress", "CSS", "SEO", "UX", "Site Architecture"]
+    },
+    {
+      id: 5,
+      title: "WordPress Developer",
+      company: "FiduciaryChat",
+      location: "San Jose, CA",
+      period: "May – Aug. 2023",
+      description: "Built centralized networking hub for fiduciary industry with WordPress, designing consistent themes and implementing searchable directory, registration, and chat functionality.",
+      achievements: [
+        "Delivered cohesive user experience with plugins",
+        "Created filterable search directory and chat system",
+        "Designed consistent professional UI/UX"
+      ],
+      tags: ["WordPress", "Block Themes", "CSS", "Plugin Configuration"]
+    },
+    {
+      id: 6,
+      title: "Web Development Intern",
+      company: "Prismatic Softwares",
+      location: "Pune, India",
+      period: "Jun. – Aug. 2022",
+      description: "Developed internal employee management system using React and Spring Boot, integrating REST APIs and validating frontend-backend workflows.",
+      achievements: [
+        "Built React/Material-UI frontend for employee system",
+        "Integrated REST APIs and tested with Postman",
+        "Delivered functioning backend endpoints with Spring Boot"
+      ],
+      tags: ["React", "Material-UI", "Spring Boot", "REST APIs", "pgAdmin4"]
     }
+
+
   ],
   portfolioItems: [
     {
@@ -127,12 +183,12 @@ export const data = {
       value: "anvay.bhanap@gmail.com",
       href: "mailto:anvay.bhanap@gmail.com"
     },
-    {
-      icon: "Phone",
-      label: "Phone",
-      value: "+1 (408) 813-5245",
-      href: "tel:+14088135245"
-    },
+    // {
+    //   icon: "Phone",
+    //   label: "Phone",
+    //   value: "+1 (408) 813-5245",
+    //   href: "tel:+14088135245"
+    // },
     {
       icon: "MapPin",
       label: "Location",

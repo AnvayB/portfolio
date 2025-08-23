@@ -65,8 +65,7 @@ export const PortfolioSection = () => {
             <span className="text-foreground"> Work</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A collection of projects showcasing expertise in data analytics, 
-            engineering, and full-stack development
+            CI/CD: Continuous Imagination and Continuous Development
           </p>
         </motion.div>
 
