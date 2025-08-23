@@ -3,7 +3,8 @@ import { Float, Text3D, OrbitControls, Sparkles } from '@react-three/drei';
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion'; // ⬅️ added AnimatePresence
 import { Button } from './ui/button';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, FileText } from 'lucide-react';
+import { ResumeRequestModal } from './ResumeRequestModal';
 
 // 3D Text Component with floating animation
 function FloatingText() {
@@ -44,6 +45,7 @@ function ParticleField() {
 
 export const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -189,28 +191,48 @@ export const HeroSection = () => {
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col gap-4 justify-center items-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1, ease: "easeOut" }}
           >
-            <Button
-              variant="default"
-              size="lg"
-              className="bg-gradient-primary text-primary-foreground hover:opacity-90 transition-opacity px-8 py-4 text-lg font-semibold glow-primary"
-              onClick={scrollToNext}
-            >
-              Explore Work
-            </Button>
+            {/* First row: Explore Work and Get In Touch */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button
+                variant="default"
+                size="lg"
+                className="bg-gradient-primary text-primary-foreground hover:opacity-90 transition-opacity px-8 py-4 text-lg font-semibold glow-primary"
+                onClick={scrollToNext}
+              >
+                Explore Work
+              </Button>
 
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg font-semibold"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg font-semibold"
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Get In Touch
+              </Button>
+            </div>
+            
+            {/* Second row: View Resume button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 1.3, ease: "easeOut" }}
             >
-              Get In Touch
-            </Button>
+              <Button
+                variant="secondary"
+                size="lg"
+                className="bg-background/50 border border-border/50 text-foreground hover:bg-background/70 hover:border-primary/50 px-8 py-4 text-lg font-semibold backdrop-blur-sm"
+                onClick={() => setIsResumeModalOpen(true)}
+              >
+                <FileText className="w-5 h-5 mr-2" />
+                View Resume
+              </Button>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>
@@ -231,6 +253,12 @@ export const HeroSection = () => {
           <ArrowDown className="w-6 h-6 text-primary" />
         </motion.div>
       </motion.div>
+
+      {/* Resume Request Modal */}
+      <ResumeRequestModal 
+        isOpen={isResumeModalOpen} 
+        onClose={() => setIsResumeModalOpen(false)} 
+      />
     </section>
   );
 };
