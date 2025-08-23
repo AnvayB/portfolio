@@ -10,6 +10,7 @@ import { Label } from './ui/label';
 import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
 import { data } from '../data.ts';
+import emailjs from '@emailjs/browser';
 
 // 3D Background Component
 function ContactBackground() {
@@ -86,7 +87,9 @@ export const ContactSection = () => {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [thanks, setThanks] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -109,9 +112,19 @@ export const ContactSection = () => {
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    // Map EmailJS field names to state field names
+    const fieldMap: { [key: string]: string } = {
+      'user_name': 'name',
+      'user_email': 'email',
+      'subject': 'subject',
+      'message': 'message'
+    };
+    
+    const stateField = fieldMap[name] || name;
     setFormData(prev => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [stateField]: value,
     }));
   };
 
@@ -119,21 +132,44 @@ export const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    try {
+      const result = await emailjs.sendForm(
+        'service_d61vlcw',
+        'template_2q6uc8b',
+        formRef.current!,
+        { publicKey: 'SZctaaxt7KKpSXd4C' }
+      );
 
-    toast({
-      title: "Message sent successfully!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
+      console.log(result.text);
+      setThanks(true);
+      
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+        variant: "default",
+        className: "bg-[#a987f4]] text-white"
+      });
 
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
-    });
-    setIsSubmitting(false);
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+      });
+      
+      // Reset thanks message after 3 seconds
+      setTimeout(() => setThanks(false), 3000);
+      
+    } catch (error) {
+      console.log((error as Error).message);
+      toast({
+        title: "Failed to send message",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -245,13 +281,13 @@ export const ContactSection = () => {
           >
             <Card className="glass border-border/50">
               <CardContent className="p-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="name" className="text-foreground">Name</Label>
                       <Input
                         id="name"
-                        name="name"
+                        name="user_name"
                         value={formData.name}
                         onChange={handleChange}
                         required
@@ -262,7 +298,7 @@ export const ContactSection = () => {
                       <Label htmlFor="email" className="text-foreground">Email</Label>
                       <Input
                         id="email"
-                        name="email"
+                        name="user_email"
                         type="email"
                         value={formData.email}
                         onChange={handleChange}
@@ -304,6 +340,14 @@ export const ContactSection = () => {
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
+                  
+                  {/* {thanks && (
+                    <div className="text-center mt-4">
+                      <span className="text-primary font-semibold text-lg">
+                        Thanks for the message!
+                      </span>
+                    </div>
+                  )} */}
                 </form>
               </CardContent>
             </Card>
