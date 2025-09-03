@@ -105,17 +105,19 @@ export const ExperienceSection = () => {
                         {experience.description}
                       </p>
 
-                      <div className="mb-6">
-                        <h4 className="font-semibold text-foreground mb-3">Key Achievements:</h4>
-                        <ul className="space-y-2">
-                          {experience.achievements.map((achievement, i) => (
-                            <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                              <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
-                              {achievement}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                      {experience.achievements?.length > 0 && (
+                        <div className="mb-6">
+                          <h4 className="font-semibold text-foreground mb-3">Key Achievements:</h4>
+                          <ul className="space-y-2">
+                            {experience.achievements.map((achievement, i) => (
+                              <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                                <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
+                                {achievement}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
 
                       <div className="flex flex-wrap gap-2">
                         {experience.tags.map((tag) => (

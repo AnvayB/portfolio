@@ -102,4 +102,8 @@ Edit `src/index.css` to customize the color palette:
 
 
 
-<!-- Request resume button that sends my resume to someone but they have to enter their email and it sends from my email so I know who's requested it -->
+<!-- 
+Notes:
+- Add Proof of Concept projects (repo) with multiple projects like Image Classification (dog vs cats), image generation, etc)
+- Request resume button that sends my resume to someone but they have to enter their email and it sends from my email so I know who's requested it 
+-->

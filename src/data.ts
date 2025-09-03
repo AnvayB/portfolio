@@ -7,9 +7,8 @@ export const data = {
       location: "San Jose, CA",
       period: "2024 - 2026",
       gpa: "3.9/4.0",
-      description: "Comprehensive blend of Data Analytics, Data Engineering, and Data Science, reinforced by Machine Learning and Artificial Intelligence.",
+      description: "Seamless blend of Data Analytics, Data Engineering, and Data Science, reinforced by Machine Learning and Artificial Intelligence.",
       achievements: [
-        "Officer at Spartan Analytics",
       ],
       coursework: ["Machine Learning", "Deep Learning", "Generative Model Applications", "Big Data", "Data Warehouse & Pipelines", "Data Visualization", "Distributed Systems", "Statistics for Data Analytics"],
       logo: "/src/images/sjsu.png"
