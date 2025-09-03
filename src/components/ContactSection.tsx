@@ -7,8 +7,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
-import { InfiniteCarousel } from './ui/infinite-carousel';
-import { Mail, Phone, MapPin, Linkedin, Github, Coffee, Camera, Music, Code, Gamepad2, Book } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
 import { data } from '../data.ts';
 import emailjs from '@emailjs/browser';
@@ -80,66 +79,7 @@ const socialLinks = [
   }
 ];
 
-const hobbies = [
-  {
-    id: 1,
-    icon: Coffee,
-    title: 'Coffee Enthusiast',
-    description: 'Third-wave coffee explorer'
-  },
-  {
-    id: 2,
-    icon: Camera,
-    title: 'Photography',
-    description: 'Capturing moments & landscapes'
-  },
-  {
-    id: 3,
-    icon: Music,
-    title: 'Music Production',
-    description: 'Electronic & ambient sounds'
-  },
-  {
-    id: 4,
-    icon: Code,
-    title: 'Open Source',
-    description: 'Contributing to community'
-  },
-  {
-    id: 5,
-    icon: Gamepad2,
-    title: 'Gaming',
-    description: 'Strategy & indie games'
-  },
-  {
-    id: 6,
-    icon: Book,
-    title: 'Reading',
-    description: 'Sci-fi & tech philosophy'
-  }
-];
 
-// Convert hobbies to React nodes for the carousel
-const hobbyItems = hobbies.map((hobby) => (
-  <motion.div
-    key={hobby.id}
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    whileHover={{ scale: 1.05 }}
-  >
-    <Card className="glass border-border/50 hover:glow-primary transition-all duration-300 h-full">
-      <CardContent className="p-2 sm:p-3 text-center">
-        <hobby.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary mx-auto mb-1 sm:mb-2" />
-        <h4 className="text-xs font-semibold text-foreground mb-1 leading-tight">
-          {hobby.title}
-        </h4>
-        <p className="text-xs text-muted-foreground leading-tight line-clamp-2">
-          {hobby.description}
-        </p>
-      </CardContent>
-    </Card>
-  </motion.div>
-));
 
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -295,10 +235,9 @@ export const ContactSection = () => {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+                <div className="flex justify-center">
                   {/* Portrait */}
                   <motion.div
-                    className="flex-shrink-0"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -308,17 +247,6 @@ export const ContactSection = () => {
                       className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full border-4 border-primary/20 shadow-lg glow-primary"
                     />
                   </motion.div>
-
-                  {/* Hobbies Carousel */}
-                  <div className="flex-1 w-full">
-                    <InfiniteCarousel 
-                      items={hobbyItems}
-                      itemsToShow={1}
-                      autoPlay={true}
-                      autoPlayDelay={4000}
-                      className="max-w-48 sm:max-w-60 mx-auto"
-                    />
-                  </div>
                 </div>
               </motion.div>
 
