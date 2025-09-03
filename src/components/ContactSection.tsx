@@ -7,7 +7,8 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
-import { Mail, Phone, MapPin, Linkedin, Github, Twitter, ChevronLeft, ChevronRight, Coffee, Camera, Music, Code, Gamepad2, Book } from 'lucide-react';
+import { InfiniteCarousel } from './ui/infinite-carousel';
+import { Mail, Phone, MapPin, Linkedin, Github, Coffee, Camera, Music, Code, Gamepad2, Book } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
 import { data } from '../data.ts';
 import emailjs from '@emailjs/browser';
@@ -118,140 +119,27 @@ const hobbies = [
   }
 ];
 
-// Mini Carousel Component
-const HobbiesCarousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [dragStart, setDragStart] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 640);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-  
-  const itemsToShow = 1;
-  const maxIndex = Math.max(0, hobbies.length - itemsToShow);
-
-  const nextSlide = () => {
-    setCurrentIndex(prev => {
-      const nextIndex = prev + 1;
-      return nextIndex > maxIndex ? 0 : nextIndex;
-    });
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex(prev => {
-      const prevIndex = prev - 1;
-      return prevIndex < 0 ? maxIndex : prevIndex;
-    });
-  };
-
-  const handleDragStart = (e: React.MouseEvent | React.TouchEvent) => {
-    const clientX = 'touches' in e ? e.touches[0]?.clientX : e.clientX;
-    setDragStart(clientX || 0);
-    setIsDragging(true);
-  };
-
-  const handleDragEnd = (e: React.MouseEvent | React.TouchEvent) => {
-    if (!isDragging) return;
-    const clientX = 'changedTouches' in e ? e.changedTouches[0]?.clientX : e.clientX;
-    const dragEnd = clientX || 0;
-    const diff = dragStart - dragEnd;
-    
-    if (Math.abs(diff) > 50) {
-      if (diff > 0) {
-        nextSlide();
-      } else {
-        prevSlide();
-      }
-    }
-    setIsDragging(false);
-  };
-
-  return (
-    <div className="relative w-full max-w-48 sm:max-w-60 mx-auto">
-      {/* Navigation Arrows */}
-      <Button
-        variant="ghost"
-        size="sm"
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-6 h-6 sm:w-8 sm:h-8 rounded-full glass hover:glow-primary transition-all duration-300"
-        onClick={prevSlide}
-      >
-        <ChevronLeft className="w-3 h-3 sm:w-4 sm:h-4" />
-      </Button>
-      
-      <Button
-        variant="ghost"
-        size="sm"
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-6 h-6 sm:w-8 sm:h-8 rounded-full glass hover:glow-primary transition-all duration-300"
-        onClick={nextSlide}
-      >
-        <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
-      </Button>
-
-      {/* Carousel Container */}
-      <div 
-        className="overflow-hidden px-6 sm:px-8 touch-manipulation"
-        onMouseDown={handleDragStart}
-        onMouseUp={handleDragEnd}
-        onTouchStart={handleDragStart}
-        onTouchEnd={handleDragEnd}
-      >
-        <motion.div
-          className="flex gap-2"
-          animate={{ x: -currentIndex * (100 / itemsToShow) + '%' }}
-          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-          style={{ width: `${(hobbies.length / itemsToShow) * 100}%` }}
-        >
-          {hobbies.map((hobby, index) => (
-            <motion.div
-              key={hobby.id}
-              className="flex-shrink-0"
-              style={{ width: `${100 / hobbies.length}%` }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
-            >
-              <Card className="glass border-border/50 hover:glow-primary transition-all duration-300 h-full">
-                <CardContent className="p-2 sm:p-3 text-center">
-                  <hobby.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary mx-auto mb-1 sm:mb-2" />
-                  <h4 className="text-xs font-semibold text-foreground mb-1 leading-tight">
-                    {hobby.title}
-                  </h4>
-                  <p className="text-xs text-muted-foreground leading-tight line-clamp-2">
-                    {hobby.description}
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-
-      {/* Dots Indicator */}
-      <div className="flex justify-center gap-1 mt-3">
-        {Array.from({ length: maxIndex + 1 }).map((_, index) => (
-          <button
-            key={index}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentIndex 
-                ? 'bg-primary' 
-                : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
-            }`}
-            onClick={() => setCurrentIndex(index)}
-          />
-        ))}
-      </div>
-    </div>
-  );
-};
+// Convert hobbies to React nodes for the carousel
+const hobbyItems = hobbies.map((hobby) => (
+  <motion.div
+    key={hobby.id}
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    whileHover={{ scale: 1.05 }}
+  >
+    <Card className="glass border-border/50 hover:glow-primary transition-all duration-300 h-full">
+      <CardContent className="p-2 sm:p-3 text-center">
+        <hobby.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary mx-auto mb-1 sm:mb-2" />
+        <h4 className="text-xs font-semibold text-foreground mb-1 leading-tight">
+          {hobby.title}
+        </h4>
+        <p className="text-xs text-muted-foreground leading-tight line-clamp-2">
+          {hobby.description}
+        </p>
+      </CardContent>
+    </Card>
+  </motion.div>
+));
 
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -423,7 +311,13 @@ export const ContactSection = () => {
 
                   {/* Hobbies Carousel */}
                   <div className="flex-1 w-full">
-                    <HobbiesCarousel />
+                    <InfiniteCarousel 
+                      items={hobbyItems}
+                      itemsToShow={1}
+                      autoPlay={true}
+                      autoPlayDelay={4000}
+                      className="max-w-48 sm:max-w-60 mx-auto"
+                    />
                   </div>
                 </div>
               </motion.div>
