@@ -1,13 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Sphere, Float, MeshDistortMaterial } from '@react-three/drei';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
-import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, Twitter, ChevronLeft, ChevronRight, Coffee, Camera, Music, Code, Gamepad2, Book } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
 import { data } from '../data.ts';
 import emailjs from '@emailjs/browser';
@@ -78,6 +78,180 @@ const socialLinks = [
     href: 'https://github.com/AnvayB',
   }
 ];
+
+const hobbies = [
+  {
+    id: 1,
+    icon: Coffee,
+    title: 'Coffee Enthusiast',
+    description: 'Third-wave coffee explorer'
+  },
+  {
+    id: 2,
+    icon: Camera,
+    title: 'Photography',
+    description: 'Capturing moments & landscapes'
+  },
+  {
+    id: 3,
+    icon: Music,
+    title: 'Music Production',
+    description: 'Electronic & ambient sounds'
+  },
+  {
+    id: 4,
+    icon: Code,
+    title: 'Open Source',
+    description: 'Contributing to community'
+  },
+  {
+    id: 5,
+    icon: Gamepad2,
+    title: 'Gaming',
+    description: 'Strategy & indie games'
+  },
+  {
+    id: 6,
+    icon: Book,
+    title: 'Reading',
+    description: 'Sci-fi & tech philosophy'
+  }
+];
+
+// Mini Carousel Component
+const HobbiesCarousel = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [dragStart, setDragStart] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
+  const itemsToShow = 1;
+  const maxIndex = Math.max(0, hobbies.length - itemsToShow);
+
+  const nextSlide = () => {
+    setCurrentIndex(prev => {
+      const nextIndex = prev + 1;
+      return nextIndex > maxIndex ? 0 : nextIndex;
+    });
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex(prev => {
+      const prevIndex = prev - 1;
+      return prevIndex < 0 ? maxIndex : prevIndex;
+    });
+  };
+
+  const handleDragStart = (e: React.MouseEvent | React.TouchEvent) => {
+    const clientX = 'touches' in e ? e.touches[0]?.clientX : e.clientX;
+    setDragStart(clientX || 0);
+    setIsDragging(true);
+  };
+
+  const handleDragEnd = (e: React.MouseEvent | React.TouchEvent) => {
+    if (!isDragging) return;
+    const clientX = 'changedTouches' in e ? e.changedTouches[0]?.clientX : e.clientX;
+    const dragEnd = clientX || 0;
+    const diff = dragStart - dragEnd;
+    
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+    setIsDragging(false);
+  };
+
+  return (
+    <div className="relative w-full max-w-48 sm:max-w-60 mx-auto">
+      {/* Navigation Arrows */}
+      <Button
+        variant="ghost"
+        size="sm"
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-6 h-6 sm:w-8 sm:h-8 rounded-full glass hover:glow-primary transition-all duration-300"
+        onClick={prevSlide}
+      >
+        <ChevronLeft className="w-3 h-3 sm:w-4 sm:h-4" />
+      </Button>
+      
+      <Button
+        variant="ghost"
+        size="sm"
+        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-6 h-6 sm:w-8 sm:h-8 rounded-full glass hover:glow-primary transition-all duration-300"
+        onClick={nextSlide}
+      >
+        <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
+      </Button>
+
+      {/* Carousel Container */}
+      <div 
+        className="overflow-hidden px-6 sm:px-8 touch-manipulation"
+        onMouseDown={handleDragStart}
+        onMouseUp={handleDragEnd}
+        onTouchStart={handleDragStart}
+        onTouchEnd={handleDragEnd}
+      >
+        <motion.div
+          className="flex gap-2"
+          animate={{ x: -currentIndex * (100 / itemsToShow) + '%' }}
+          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+          style={{ width: `${(hobbies.length / itemsToShow) * 100}%` }}
+        >
+          {hobbies.map((hobby, index) => (
+            <motion.div
+              key={hobby.id}
+              className="flex-shrink-0"
+              style={{ width: `${100 / hobbies.length}%` }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <Card className="glass border-border/50 hover:glow-primary transition-all duration-300 h-full">
+                <CardContent className="p-2 sm:p-3 text-center">
+                  <hobby.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary mx-auto mb-1 sm:mb-2" />
+                  <h4 className="text-xs font-semibold text-foreground mb-1 leading-tight">
+                    {hobby.title}
+                  </h4>
+                  <p className="text-xs text-muted-foreground leading-tight line-clamp-2">
+                    {hobby.description}
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Dots Indicator */}
+      <div className="flex justify-center gap-1 mt-3">
+        {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+          <button
+            key={index}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              index === currentIndex 
+                ? 'bg-primary' 
+                : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+            }`}
+            onClick={() => setCurrentIndex(index)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -220,18 +394,75 @@ export const ContactSection = () => {
                 I'm always interested in hearing about new opportunities, 
                 interesting projects, and creative collaborations. Whether you're a 
                 startup looking to build something amazing or an established company 
-                needing technical expertise, let's talk!
+                needing technical expertise, let's talk! When I'm not coding, you'll 
+                find me exploring third-wave coffee, capturing landscapes through photography, 
+                producing ambient music, or diving into sci-fi philosophy.
               </p>
 
-              <div className="space-y-4 sm:space-y-6">
-                {contactInfo.map((item, index) => (
+              {/* Portrait and Hobbies Carousel */}
+              <motion.div
+                className="mb-6 sm:mb-8"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+                  {/* Portrait */}
+                  <motion.div
+                    className="flex-shrink-0"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <img
+                      src="/src/images/face-left.jpg"
+                      alt="Portrait"
+                      className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full border-4 border-primary/20 shadow-lg glow-primary"
+                    />
+                  </motion.div>
+
+                  {/* Hobbies Carousel */}
+                  <div className="flex-1 w-full">
+                    <HobbiesCarousel />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Contact Info Grid - Email and Location side by side, Phone below */}
+              <div className="space-y-3 sm:space-y-4">
+                {/* Email and Location Row */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                  {contactInfo.filter(item => item.label === 'Email' || item.label === 'Location').map((item, index) => (
+                    <motion.a
+                      key={item.label}
+                      href={item.href}
+                      className="flex items-center gap-3 p-3 sm:p-4 glass rounded-lg hover:glow-primary transition-all duration-300 group"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      whileHover={{ x: 5 }}
+                    >
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                        <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
+                      </div>
+                      <div>
+                        <p className="text-sm sm:text-base font-semibold text-foreground">{item.label}</p>
+                        <p className="text-xs sm:text-sm text-muted-foreground">{item.value}</p>
+                      </div>
+                    </motion.a>
+                  ))}
+                </div>
+
+                {/* Phone Row */}
+                {contactInfo.filter(item => item.label === 'Phone').map((item, index) => (
                   <motion.a
                     key={item.label}
                     href={item.href}
-                    className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 glass rounded-lg hover:glow-primary transition-all duration-300 group"
+                    className="flex items-center gap-3 p-3 sm:p-4 glass rounded-lg hover:glow-primary transition-all duration-300 group"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
                     viewport={{ once: true }}
                     whileHover={{ x: 10 }}
                   >
