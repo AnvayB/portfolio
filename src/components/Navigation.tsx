@@ -60,15 +60,16 @@ export const Navigation = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex justify-between items-center">
             {/* Logo */}
             <motion.div
-              className="text-2xl font-display font-bold text-gradient cursor-pointer"
+              className="text-xl sm:text-2xl font-display font-bold text-gradient cursor-pointer"
               whileHover={{ scale: 1.05 }}
               onClick={() => scrollToSection('hero')}
             >
-              Anvay Bhanap
+              <span className="hidden sm:inline">Anvay Bhanap</span>
+              <span className="sm:hidden">AB</span>
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -103,10 +104,10 @@ export const Navigation = () => {
             <Button
               variant="ghost"
               size="sm"
-              className="md:hidden"
+              className="md:hidden p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? <X /> : <Menu />}
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </Button>
           </div>
         </div>
@@ -123,7 +124,7 @@ export const Navigation = () => {
           >
             <div className="absolute inset-0 bg-background/95 backdrop-blur-lg" />
             <motion.div
-              className="relative z-50 flex flex-col items-center justify-center min-h-screen space-y-8"
+              className="relative z-50 flex flex-col items-center justify-center min-h-screen space-y-6 px-6"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
@@ -132,7 +133,7 @@ export const Navigation = () => {
               {navItems.map(({ id, label }, index) => (
                 <motion.button
                   key={id}
-                  className={`text-2xl font-medium transition-colors duration-300 ${
+                  className={`text-xl sm:text-2xl font-medium transition-colors duration-300 text-center ${
                     activeSection === id
                       ? 'text-gradient'
                       : 'text-muted-foreground hover:text-foreground'

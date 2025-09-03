@@ -175,7 +175,7 @@ export const ContactSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen py-20 px-6 bg-mesh overflow-hidden"
+      className="relative min-h-screen py-16 sm:py-20 px-4 sm:px-6 bg-mesh overflow-hidden"
       id="contact"
     >
       {/* 3D Background */}
@@ -190,73 +190,73 @@ export const ContactSection = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-5xl md:text-6xl font-display font-bold mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-4 sm:mb-6">
             <span className="text-foreground">Let's </span>
             <span className="text-gradient">Connect</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-2">
             Ready to collaborate on your next project? Let's discuss how we can bring your ideas to life
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Contact Information */}
           <motion.div
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
             <div>
-              <h3 className="text-2xl font-bold text-foreground mb-6">Get in Touch</h3>
-              <p className="text-muted-foreground mb-8 leading-relaxed">
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">Get in Touch</h3>
+              <p className="text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
                 I'm always interested in hearing about new opportunities, 
                 interesting projects, and creative collaborations. Whether you're a 
                 startup looking to build something amazing or an established company 
                 needing technical expertise, let's talk!
               </p>
 
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {contactInfo.map((item, index) => (
                   <motion.a
                     key={item.label}
                     href={item.href}
-                    className="flex items-center gap-4 p-4 glass rounded-lg hover:glow-primary transition-all duration-300 group"
+                    className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 glass rounded-lg hover:glow-primary transition-all duration-300 group"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ x: 10 }}
                   >
-                    <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                      <item.icon className="w-6 h-6 text-primary-foreground" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                      <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
                     </div>
                     <div>
-                      <p className="font-semibold text-foreground">{item.label}</p>
-                      <p className="text-muted-foreground">{item.value}</p>
+                      <p className="text-sm sm:text-base font-semibold text-foreground">{item.label}</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground">{item.value}</p>
                     </div>
                   </motion.a>
                 ))}
               </div>
 
               {/* Social Links */}
-              <div className="mt-8">
-                <h4 className="text-lg font-semibold text-foreground mb-4">Follow Me</h4>
-                <div className="flex gap-4">
+              <div className="mt-6 sm:mt-8">
+                <h4 className="text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">Follow Me</h4>
+                <div className="flex gap-3 sm:gap-4">
                   {socialLinks.map((social, index) => (
                     <motion.a
                       key={social.name}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 glass rounded-lg flex items-center justify-center hover:glow-primary transition-all duration-300"
+                      className="w-10 h-10 sm:w-12 sm:h-12 glass rounded-lg flex items-center justify-center hover:glow-primary transition-all duration-300"
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -264,7 +264,7 @@ export const ContactSection = () => {
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                     >
-                      <social.icon className="w-5 h-5 text-primary" />
+                      <social.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                     </motion.a>
                   ))}
                 </div>
@@ -280,22 +280,22 @@ export const ContactSection = () => {
             viewport={{ once: true }}
           >
             <Card className="glass border-border/50">
-              <CardContent className="p-8">
-                <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <CardContent className="p-4 sm:p-6 lg:p-8">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="name" className="text-foreground">Name</Label>
+                      <Label htmlFor="name" className="text-sm sm:text-base text-foreground">Name</Label>
                       <Input
                         id="name"
                         name="user_name"
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="bg-input/50 border-border focus:border-primary"
+                        className="bg-input/50 border-border focus:border-primary text-sm sm:text-base"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email" className="text-foreground">Email</Label>
+                      <Label htmlFor="email" className="text-sm sm:text-base text-foreground">Email</Label>
                       <Input
                         id="email"
                         name="user_email"
@@ -303,40 +303,40 @@ export const ContactSection = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="bg-input/50 border-border focus:border-primary"
+                        className="bg-input/50 border-border focus:border-primary text-sm sm:text-base"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="subject" className="text-foreground">Subject</Label>
+                    <Label htmlFor="subject" className="text-sm sm:text-base text-foreground">Subject</Label>
                     <Input
                       id="subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="bg-input/50 border-border focus:border-primary"
+                      className="bg-input/50 border-border focus:border-primary text-sm sm:text-base"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="message" className="text-foreground">Message</Label>
+                    <Label htmlFor="message" className="text-sm sm:text-base text-foreground">Message</Label>
                     <Textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      rows={6}
-                      className="bg-input/50 border-border focus:border-primary resize-none"
+                      rows={5}
+                      className="bg-input/50 border-border focus:border-primary resize-none text-sm sm:text-base"
                     />
                   </div>
 
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-primary text-primary-foreground hover:opacity-90 py-6 text-lg font-semibold glow-primary disabled:opacity-50"
+                    className="w-full bg-gradient-primary text-primary-foreground hover:opacity-90 py-4 sm:py-6 text-base sm:text-lg font-semibold glow-primary disabled:opacity-50"
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>

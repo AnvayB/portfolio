@@ -114,7 +114,7 @@ export const HeroSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex flex-col items-center justify-center gap-8 bg-mesh overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center gap-6 sm:gap-8 bg-mesh overflow-hidden px-4 sm:px-6"
       id="hero"
     >
 
@@ -126,7 +126,7 @@ export const HeroSection = () => {
         transition={{ duration: 0.8, delay: 0.2 }}
       >
 
-        <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary/20 glow-primary mx-auto mt-8">
+        <div className="w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary/20 glow-primary mx-auto mt-4 sm:mt-8">
           <img
             src="/src/images/face-left.jpg"
             alt="Profile"
@@ -156,13 +156,13 @@ export const HeroSection = () => {
 
 
       {/* Content Overlay */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
+      <div className="relative z-10 text-center max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-display font-bold mb-4 sm:mb-6 leading-tight">
             <br />
             {/* ⬇️ Smooth crossfade between roles */}
             <div className="inline-grid align-top">
@@ -182,12 +182,12 @@ export const HeroSection = () => {
           </h1>
 
           <motion.p
-            className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+            className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto px-2"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
           >
-            I don’t just work with data; I design experiences around it.
+            I don't just work with data; I design experiences around it.
           </motion.p>
 
           <motion.div
@@ -197,11 +197,11 @@ export const HeroSection = () => {
             transition={{ duration: 1, delay: 1, ease: "easeOut" }}
           >
             {/* First row: Explore Work and Get In Touch */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center w-full max-w-md sm:max-w-none mx-auto">
               <Button
                 variant="default"
                 size="lg"
-                className="bg-gradient-primary text-primary-foreground hover:opacity-90 transition-opacity px-8 py-4 text-lg font-semibold glow-primary"
+                className="w-full sm:w-auto bg-gradient-primary text-primary-foreground hover:opacity-90 transition-opacity px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold glow-primary"
                 onClick={scrollToNext}
               >
                 Explore Work
@@ -210,7 +210,7 @@ export const HeroSection = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg font-semibold"
+                className="w-full sm:w-auto border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Get In Touch
@@ -226,10 +226,10 @@ export const HeroSection = () => {
               <Button
                 variant="secondary"
                 size="lg"
-                className="bg-background/50 border border-border/50 text-foreground hover:bg-background/70 hover:border-primary/50 px-8 py-4 text-lg font-semibold backdrop-blur-sm"
+                className="w-full sm:w-auto max-w-md sm:max-w-none bg-background/50 border border-border/50 text-foreground hover:bg-background/70 hover:border-primary/50 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold backdrop-blur-sm"
                 onClick={() => setIsResumeModalOpen(true)}
               >
-                <FileText className="w-5 h-5 mr-2" />
+                <FileText className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
                 View Resume
               </Button>
             </motion.div>

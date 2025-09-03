@@ -112,6 +112,29 @@
   .animate-pulse-glow {
     animation: pulse-glow 2s ease-in-out infinite alternate;
   }
+  
+  /* Mobile-specific utilities */
+  .mobile-safe-area {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+  
+  /* Improved mobile hover states */
+  @media (hover: none) and (pointer: coarse) {
+    .hover\:scale-110:hover {
+      transform: none;
+    }
+    
+    .hover\:glow-primary:hover {
+      box-shadow: none;
+    }
+  }
 }
 
 /* Keyframes for animations */
@@ -132,7 +155,13 @@ html {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
+}
+
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
 }
 
 ::-webkit-scrollbar-track {
@@ -155,5 +184,27 @@ html {
 
   body {
     @apply bg-background text-foreground;
+  }
+  
+  /* Mobile-specific improvements */
+  @media (max-width: 768px) {
+    /* Prevent horizontal scroll */
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+    }
+    
+    /* Improve touch targets */
+    button, a {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    /* Better text rendering on mobile */
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
   }
 }

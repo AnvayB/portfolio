@@ -132,20 +132,20 @@ export const ResumeRequestModal = ({ isOpen, onClose }: ResumeRequestModalProps)
     <AnimatePresence>
       {isOpen && (
         <Dialog open={isOpen} onOpenChange={handleClose}>
-          <DialogContent className="sm:max-w-md bg-background/95 backdrop-blur-sm border-border/50">
+          <DialogContent className="w-[95vw] max-w-md mx-auto bg-background/95 backdrop-blur-sm border-border/50">
             <DialogHeader>
-              <DialogTitle className="flex items-center gap-2 text-foreground">
-                <FileText className="w-5 h-5 text-primary" />
+              <DialogTitle className="flex items-center gap-2 text-foreground text-lg sm:text-xl">
+                <FileText className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                 Request Resume
               </DialogTitle>
               <Button
                 variant="ghost"
                 size="sm"
-                className="absolute right-4 top-4 opacity-70 hover:opacity-100"
+                className="absolute right-3 top-3 sm:right-4 sm:top-4 opacity-70 hover:opacity-100 p-1.5 sm:p-2"
                 onClick={handleClose}
                 disabled={isSubmitting}
               >
-                <X className="w-4 h-4" />
+                <X className="w-3 h-3 sm:w-4 sm:h-4" />
               </Button>
             </DialogHeader>
 
@@ -153,28 +153,28 @@ export const ResumeRequestModal = ({ isOpen, onClose }: ResumeRequestModalProps)
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
-              className="space-y-6 pt-4"
+              className="space-y-4 sm:space-y-6 pt-2 sm:pt-4"
             >
               {isSuccess ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-8"
+                  className="text-center py-6 sm:py-8"
                 >
-                  <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <FileText className="w-8 h-8 text-green-500" />
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <FileText className="w-6 h-6 sm:w-8 sm:h-8 text-green-500" />
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                  <h3 className="text-base sm:text-lg font-semibold text-foreground mb-2">
                     Resume Downloaded!
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-sm sm:text-base text-muted-foreground px-2">
                     Your request has been logged and the resume should be downloading now.
                   </p>
                 </motion.div>
               ) : (
-                <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-                  <div className="text-center mb-6">
-                    <p className="text-muted-foreground">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                  <div className="text-center mb-4 sm:mb-6">
+                    <p className="text-sm sm:text-base text-muted-foreground px-2">
                       Please enter your email to receive the resume
                     </p>
                   </div>
@@ -190,7 +190,7 @@ export const ResumeRequestModal = ({ isOpen, onClose }: ResumeRequestModalProps)
                   <input type="hidden" name="role_interest" value={roleOptions.find(r => r.value === role)?.label || ''} />
 
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-foreground">
+                    <Label htmlFor="email" className="text-sm sm:text-base text-foreground">
                       Email Address
                     </Label>
                     <Input
@@ -201,17 +201,17 @@ export const ResumeRequestModal = ({ isOpen, onClose }: ResumeRequestModalProps)
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="your.email@company.com"
                       required
-                      className="bg-input/50 border-border focus:border-primary"
+                      className="bg-input/50 border-border focus:border-primary text-sm sm:text-base"
                       disabled={isSubmitting}
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="role" className="text-foreground">
+                    <Label htmlFor="role" className="text-sm sm:text-base text-foreground">
                       Area of Interest
                     </Label>
                     <Select value={role} onValueChange={setRole} disabled={isSubmitting}>
-                      <SelectTrigger className="bg-input/50 border-border focus:border-primary">
+                      <SelectTrigger className="bg-input/50 border-border focus:border-primary text-sm sm:text-base">
                         <SelectValue placeholder="Select role type" />
                       </SelectTrigger>
                       <SelectContent>
@@ -227,13 +227,13 @@ export const ResumeRequestModal = ({ isOpen, onClose }: ResumeRequestModalProps)
                   <Button
                     type="submit"
                     disabled={isSubmitting || !email || !role}
-                    className="w-full bg-gradient-primary text-primary-foreground hover:opacity-90 py-3 text-lg font-semibold glow-primary disabled:opacity-50"
+                    className="w-full bg-gradient-primary text-primary-foreground hover:opacity-90 py-3 sm:py-4 text-base sm:text-lg font-semibold glow-primary disabled:opacity-50"
                   >
                     {isSubmitting ? (
                       <motion.div
                         animate={{ rotate: 360 }}
                         transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                        className="w-4 h-4 border-2 border-current border-t-transparent rounded-full mr-2"
+                        className="w-3 h-3 sm:w-4 sm:h-4 border-2 border-current border-t-transparent rounded-full mr-2"
                       />
                     ) : null}
                     {isSubmitting ? 'Sending Request...' : 'Request Resume'}

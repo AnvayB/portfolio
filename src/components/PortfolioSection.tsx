@@ -49,29 +49,29 @@ export const PortfolioSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen py-20 px-6 bg-background"
+      className="min-h-screen py-16 sm:py-20 px-4 sm:px-6 bg-background"
       id="portfolio"
     >
       <div className="max-w-7xl mx-auto">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-5xl md:text-6xl font-display font-bold mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-4 sm:mb-6">
             <span className="text-gradient">Featured</span>
             <span className="text-foreground"> Work</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-2">
             CI/CD: Continuous Imagination and Continuous Development
           </p>
         </motion.div>
 
         {/* Filter Buttons */}
         <motion.div
-          className="flex flex-wrap justify-center gap-4 mb-12"
+          className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 px-2"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -81,7 +81,7 @@ export const PortfolioSection = () => {
             <Button
               key={category}
               variant={activeCategory === category ? 'default' : 'outline'}
-              className={`px-6 py-3 font-medium transition-all duration-300 ${
+              className={`px-3 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-medium transition-all duration-300 ${
                 activeCategory === category
                   ? 'bg-gradient-primary text-primary-foreground glow-primary'
                   : 'border-border hover:border-primary'
@@ -95,7 +95,7 @@ export const PortfolioSection = () => {
 
         {/* Portfolio Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           layout
         >
           <AnimatePresence mode="popLayout">
@@ -115,7 +115,7 @@ export const PortfolioSection = () => {
                     <motion.img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-40 sm:h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ duration: 0.5 }}
@@ -150,23 +150,23 @@ export const PortfolioSection = () => {
                     </div>
                   </div>
                   
-                  <CardContent className="p-6">
+                  <CardContent className="p-4 sm:p-6">
                     <Badge
                       variant="secondary"
-                      className="mb-3 bg-primary/10 text-primary border-primary/20"
+                      className="mb-3 bg-primary/10 text-primary border-primary/20 text-xs"
                     >
                       {item.category}
                     </Badge>
                     
-                    <h3 className="text-xl font-semibold mb-3 text-foreground">
+                    <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-foreground leading-tight">
                       {item.title}
                     </h3>
                     
-                    <p className="text-muted-foreground mb-4 line-clamp-3">
+                    <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4 line-clamp-3">
                       {item.description}
                     </p>
                     
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {item.tags.map((tag) => (
                         <Badge
                           key={tag}

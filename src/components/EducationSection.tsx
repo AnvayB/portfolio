@@ -63,40 +63,40 @@ export const EducationSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen py-20 px-6 bg-background"
+      className="min-h-screen py-16 sm:py-20 px-4 sm:px-6 bg-background"
       id="education"
     >
       <div className="max-w-6xl mx-auto">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-5xl md:text-6xl font-display font-bold mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-4 sm:mb-6">
             <span className="text-gradient">Education</span>
             <span className="text-foreground"> & Certifications</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-2">
             Compiling Curiosity: Transforming learning into lasting expertise.
           </p>
         </motion.div>
 
         {/* Education Section */}
-        <div className="mb-16">
+        <div className="mb-12 sm:mb-16">
           <motion.h3
-            className="text-3xl font-bold text-foreground mb-8 flex items-center gap-3"
+            className="text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8 flex items-center gap-2 sm:gap-3"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <GraduationCap className="w-8 h-8 text-primary" />
+            <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
             Academic Background
           </motion.h3>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             {education.map((edu, index) => (
               <motion.div
                 key={edu.id}
@@ -106,20 +106,20 @@ export const EducationSection = () => {
                 viewport={{ once: true }}
               >
                 <Card className="glass border-border/50 hover:glow-primary transition-all duration-500 h-full">
-                  <CardContent className="p-6">
-                    <div className="flex justify-between items-start mb-4">
-                      <div className="flex-1">
-                        <h4 className="text-xl font-bold text-foreground mb-2">
+                  <CardContent className="p-4 sm:p-6">
+                    <div className="flex justify-between items-start mb-3 sm:mb-4">
+                      <div className="flex-1 pr-3">
+                        <h4 className="text-lg sm:text-xl font-bold text-foreground mb-1 sm:mb-2 leading-tight">
                           {edu.degree}
                         </h4>
-                        <p className="text-primary font-semibold mb-1">
+                        <p className="text-primary font-semibold mb-1 text-sm sm:text-base">
                           {edu.institution}
                         </p>
-                        <p className="text-muted-foreground text-sm mb-2">
+                        <p className="text-muted-foreground text-xs sm:text-sm mb-2">
                           {edu.location} • {edu.period}
                         </p>
                       </div>
-                      <div className="w-20 h-20 flex-shrink-0">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0">
                         <img 
                           src={edu.logo}
                           alt={`${edu.institution} logo`}
@@ -128,19 +128,19 @@ export const EducationSection = () => {
                       </div>
                     </div>
 
-                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                    <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4 leading-relaxed">
                       {edu.description}
                     </p>
 
-                    <div className="mb-4">
-                      <h5 className="font-semibold text-foreground mb-2 flex items-center gap-2">
-                        <Award className="w-4 h-4 text-primary" />
+                    <div className="mb-3 sm:mb-4">
+                      <h5 className="text-sm sm:text-base font-semibold text-foreground mb-2 flex items-center gap-2">
+                        <Award className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
                         Achievements
                       </h5>
                       <ul className="space-y-1">
                         {edu.achievements.map((achievement, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
+                          <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-muted-foreground">
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 sm:mt-2 flex-shrink-0" />
                             {achievement}
                           </li>
                         ))}
@@ -148,11 +148,11 @@ export const EducationSection = () => {
                     </div>
 
                     <div>
-                      <h5 className="font-semibold text-foreground mb-2 flex items-center gap-2">
-                        <BookOpen className="w-4 h-4 text-primary" />
+                      <h5 className="text-sm sm:text-base font-semibold text-foreground mb-2 flex items-center gap-2">
+                        <BookOpen className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
                         Key Coursework
                       </h5>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1.5 sm:gap-2">
                         {edu.coursework.map((course) => (
                           <Badge
                             key={course}
@@ -174,17 +174,17 @@ export const EducationSection = () => {
         {/* Certifications Section */}
         <div>
           <motion.h3
-            className="text-3xl font-bold text-foreground mb-8 flex items-center gap-3"
+            className="text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8 flex items-center gap-2 sm:gap-3"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <Award className="w-8 h-8 text-primary" />
+            <Award className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
             Professional Certifications
           </motion.h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {certifications.map((cert, index) => (
               <motion.div
                 key={cert.id}
@@ -195,9 +195,9 @@ export const EducationSection = () => {
                 whileHover={{ y: -5 }}
               >
                 <Card className="glass border-border/50 hover:glow-primary transition-all duration-300 text-center">
-                  <CardContent className="p-6">
-                    <img src={cert.logo} alt={cert.name} className="h-16 w-auto mx-auto mb-4" />
-                    <h4 className="font-bold text-foreground mb-2 text-sm leading-tight">
+                  <CardContent className="p-4 sm:p-6">
+                    <img src={cert.logo} alt={cert.name} className="h-12 sm:h-16 w-auto mx-auto mb-3 sm:mb-4" />
+                    <h4 className="font-bold text-foreground mb-2 text-xs sm:text-sm leading-tight">
                       {cert.name}
                     </h4>
                     <p className="text-muted-foreground text-xs mb-2">
@@ -205,7 +205,7 @@ export const EducationSection = () => {
                     </p>
                     <Badge
                       variant="secondary"
-                      className="bg-primary/10 text-primary border-primary/20"
+                      className="bg-primary/10 text-primary border-primary/20 text-xs"
                     >
                       {cert.date}
                     </Badge>
