@@ -7,10 +7,18 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
-import { Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
+import { InfiniteCarousel } from './ui/infinite-carousel';
+import { Mail, Phone, MapPin, Linkedin, Github, Coffee, Camera, Music, Code, Book } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
 import { data } from '../data.ts';
 import emailjs from '@emailjs/browser';
+
+// Import hobby images
+import hobbyCoffeeImg from '../images/hobby-coffee.jpg';
+import hobbyPhotographyImg from '../images/hobby-photography.jpg';
+import hobbyMusicImg from '../images/hobby-music.jpg';
+import hobbyCodingImg from '../images/hobby-coding.jpg';
+import hobbyReadingImg from '../images/hobby-reading.jpg';
 
 // 3D Background Component
 function ContactBackground() {
@@ -78,6 +86,68 @@ const socialLinks = [
     href: 'https://github.com/AnvayB',
   }
 ];
+
+const hobbies = [
+  {
+    id: 1,
+    image: hobbyCoffeeImg,
+    title: 'Coffee Enthusiast',
+    description: 'Third-wave coffee explorer'
+  },
+  {
+    id: 2,
+    image: hobbyPhotographyImg,
+    title: 'Photography',
+    description: 'Capturing moments & landscapes'
+  },
+  {
+    id: 3,
+    image: hobbyMusicImg,
+    title: 'Music Production',
+    description: 'Electronic & ambient sounds'
+  },
+  {
+    id: 4,
+    image: hobbyCodingImg,
+    title: 'Open Source',
+    description: 'Contributing to community'
+  },
+  {
+    id: 5,
+    image: hobbyReadingImg,
+    title: 'Reading',
+    description: 'Sci-fi & tech philosophy'
+  }
+];
+
+// Convert hobbies to React nodes for the carousel
+const hobbyItems = hobbies.map((hobby) => (
+  <motion.div
+    key={hobby.id}
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    whileHover={{ scale: 1.05 }}
+    className="px-2"
+  >
+    <Card className="glass border-border/50 hover:glow-primary transition-all duration-300 h-full">
+      <CardContent className="p-3 text-center">
+        <div className="w-full h-24 sm:h-28 mb-3 rounded-lg overflow-hidden">
+          <img
+            src={hobby.image}
+            alt={hobby.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <h4 className="text-sm font-semibold text-foreground mb-1 leading-tight">
+          {hobby.title}
+        </h4>
+        <p className="text-xs text-muted-foreground leading-tight line-clamp-2">
+          {hobby.description}
+        </p>
+      </CardContent>
+    </Card>
+  </motion.div>
+));
 
 
 
@@ -235,9 +305,10 @@ export const ContactSection = () => {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                <div className="flex justify-center">
+                <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
                   {/* Portrait */}
                   <motion.div
+                    className="flex-shrink-0"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -247,6 +318,17 @@ export const ContactSection = () => {
                       className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full border-4 border-primary/20 shadow-lg glow-primary"
                     />
                   </motion.div>
+
+                  {/* Hobbies Carousel */}
+                  <div className="flex-1 w-full">
+                    <InfiniteCarousel 
+                      items={hobbyItems}
+                      itemsToShow={1}
+                      autoPlay={true}
+                      autoPlayDelay={4000}
+                      className="max-w-48 sm:max-w-60 mx-auto"
+                    />
+                  </div>
                 </div>
               </motion.div>
 
