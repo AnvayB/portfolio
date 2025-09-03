@@ -38,14 +38,14 @@ export const InfiniteCarousel: React.FC<InfiniteCarouselProps> = ({
     if (isTransitioning) return;
     
     setIsTransitioning(true);
-    setCurrentIndex((prevIndex) => prevIndex + 1);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalExtendedItems);
   };
 
   const goToPrev = () => {
     if (isTransitioning) return;
     
     setIsTransitioning(true);
-    setCurrentIndex((prevIndex) => prevIndex - 1);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + totalExtendedItems) % totalExtendedItems);
   };
 
   // Handle seamless looping

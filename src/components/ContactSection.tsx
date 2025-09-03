@@ -12,6 +12,8 @@ import { Mail, Phone, MapPin, Linkedin, Github, Coffee, Camera, Music, Code, Boo
 import { useToast } from '../hooks/use-toast';
 import { data } from '../data.ts';
 import emailjs from '@emailjs/browser';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 // Import hobby images
 import hobbyCoffeeImg from '../images/hobby-coffee.jpg';
@@ -321,13 +323,32 @@ export const ContactSection = () => {
 
                   {/* Hobbies Carousel */}
                   <div className="flex-1 w-full">
-                    <InfiniteCarousel 
-                      items={hobbyItems}
-                      itemsToShow={1}
+                    <Carousel
+                      responsive={{
+                        superLargeDesktop: {
+                          breakpoint: { max: 4000, min: 3000 },
+                          items: 1
+                        },
+                        desktop: {
+                          breakpoint: { max: 3000, min: 1024 },
+                          items: 1
+                        },
+                        tablet: {
+                          breakpoint: { max: 1024, min: 464 },
+                          items: 1
+                        },
+                        mobile: {
+                          breakpoint: { max: 464, min: 0 },
+                          items: 1
+                        }
+                      }}
                       autoPlay={true}
-                      autoPlayDelay={4000}
+                      autoPlaySpeed={4000}
+                      infinite={true}
                       className="max-w-48 sm:max-w-60 mx-auto"
-                    />
+                    >
+                      {hobbyItems}
+                    </Carousel>
                   </div>
                 </div>
               </motion.div>
