@@ -151,6 +151,45 @@ const hobbyItems = hobbies.map((hobby) => (
   </motion.div>
 ));
 
+// Custom Left Arrow
+const CustomLeftArrow = ({ onClick }) => {
+  return (
+    <button
+      onClick={onClick}
+      className="absolute -left-3 top-1/3 -translate-y-1/2 w-8 h-8 bg-background/80 border border-border rounded-full flex items-center justify-center hover:bg-background transition-colors z-10 overflow-visible"
+      aria-label="Previous"
+    >
+      <svg
+        className="w-4 h-4 text-foreground"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+  );
+};
+
+// Custom Right Arrow
+const CustomRightArrow = ({ onClick }) => {
+  return (
+    <button
+      onClick={onClick}
+      className="absolute -right-3 top-1/3 -translate-y-1/2 w-8 h-8 bg-background/80 border border-border rounded-full flex items-center justify-center hover:bg-background transition-colors z-10 overflow-visible"
+      aria-label="Next"
+    >
+      <svg
+        className="w-4 h-4 text-foreground"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+  );
+};
 
 
 export const ContactSection = () => {
@@ -342,6 +381,8 @@ export const ContactSection = () => {
                           items: 1
                         }
                       }}
+                      customLeftArrow={<CustomLeftArrow />}
+                      customRightArrow={<CustomRightArrow />}
                       autoPlay={true}
                       autoPlaySpeed={4000}
                       infinite={true}
