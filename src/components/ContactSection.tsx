@@ -381,8 +381,8 @@ export const ContactSection = () => {
                           items: 1
                         }
                       }}
-                      customLeftArrow={<CustomLeftArrow />}
-                      customRightArrow={<CustomRightArrow />}
+                      customLeftArrow={<CustomLeftArrow onClick={() => {}} />}
+                      customRightArrow={<CustomRightArrow onClick={() => {}} />}
                       autoPlay={true}
                       autoPlaySpeed={4000}
                       infinite={true}
