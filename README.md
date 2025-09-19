@@ -1,5 +1,7 @@
 # Portfolio
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/075cb6b3-5034-43fa-aec6-017a6518dcb5/deploy-status)](https://app.netlify.com/projects/anvayb/deploys)
+
 ## ✨ Features
 
 - **3D Interactive Elements**: Floating text, particle systems, and distorted spheres using React Three Fiber
@@ -105,5 +107,4 @@ Edit `src/index.css` to customize the color palette:
 <!-- 
 Notes:
 - Add Proof of Concept projects (repo) with multiple projects like Image Classification (dog vs cats), image generation, etc)
-- Request resume button that sends my resume to someone but they have to enter their email and it sends from my email so I know who's requested it 
 -->
