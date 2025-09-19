@@ -17,7 +17,7 @@ interface ResumeRequestModalProps {
 export const ResumeRequestModal = ({ isOpen, onClose }: ResumeRequestModalProps) => {
   const [email, setEmail] = useState('');
   const [role, setRole] = useState('');
-  const [location, setLocation] = useState('download'); // 'download' or 'email'
+  const [location, setLocation] = useState('email'); // 'download' or 'email'
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
@@ -51,8 +51,8 @@ export const ResumeRequestModal = ({ isOpen, onClose }: ResumeRequestModalProps)
   ], []);
 
   const locationOptions = useMemo(() => [
-    { value: 'download', label: 'Download to Computer' },
     { value: 'email', label: 'Send to Email' },
+    { value: 'download', label: 'Download' },
   ], []);
 
   // Update hidden fields when email, role, or location changes
@@ -67,7 +67,7 @@ export const ResumeRequestModal = ({ isOpen, onClose }: ResumeRequestModalProps)
       
       const selectedRole = roleOptions.find(r => r.value === role);
       const roleLabel = selectedRole?.label || 'Position Not Selected';
-      const locationLabel = locationOptions.find(l => l.value === location)?.label || 'Download to Computer';
+      const locationLabel = locationOptions.find(l => l.value === location)?.label || 'Download';
       const resumeFile = selectedRole?.resumeFile || '';
       const driveLink = selectedRole?.driveLink || '';
       
@@ -164,7 +164,7 @@ export const ResumeRequestModal = ({ isOpen, onClose }: ResumeRequestModalProps)
       setTimeout(() => {
         setEmail('');
         setRole('');
-        setLocation('download');
+        setLocation('email');
         setIsSuccess(false);
         onClose();
       }, 3000);
@@ -186,7 +186,7 @@ export const ResumeRequestModal = ({ isOpen, onClose }: ResumeRequestModalProps)
     if (!isSubmitting) {
       setEmail('');
       setRole('');
-      setLocation('download');
+      setLocation('email');
       setIsSuccess(false);
       onClose();
     }
