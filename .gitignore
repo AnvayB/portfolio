@@ -23,4 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 
-topics.ipynb
+public/resumes/*
