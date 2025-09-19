@@ -1,3 +1,12 @@
+import sjsu from './images/sjsu.png';
+import btt from './images/btt.png';
+import skys from './images/skys.jpeg';
+import track from './images/track.png';
+import sfcrime from './images/sfcrime.png';
+import sjtraffic from './images/sjtraffic.png';
+import platestack from './images/platestack.png';
+
+
 export const data = {
   education: [
     {
@@ -11,7 +20,7 @@ export const data = {
       achievements: [
       ],
       coursework: ["Machine Learning", "Deep Learning", "Generative Model Applications", "Big Data", "Data Warehouse & Pipelines", "Data Visualization", "Distributed Systems", "Statistics for Data Analytics"],
-      logo: "/src/images/sjsu.png"
+      logo: sjsu
     },
     {
       id: 2,
@@ -25,7 +34,7 @@ export const data = {
         "Dean's List - Spring 2020"
       ],
       coursework: ["Data Structures and Algorithms", "Object-Oriented Design", "Software Engineering Fundamentals", "Database Management Systems", "Software Quality Engineering", "Programming Paradigms"],
-      logo: "/src/images/sjsu.png"
+      logo: sjsu
     }
   ],
   experiences: [
@@ -120,7 +129,7 @@ export const data = {
       title: "Beyond the Tap – Water Quality Prediction in Bay Area",
       category: "Data Science",
       description: "Developed ML pipeline with feature engineering, applied ensemble models, and clustering to enhance prediction accuracy.",
-      image: "/src/images/btt.png",
+      image: btt,
       tags: ["Pandas", "Scikit-learn", "XGBoost", "Random Forest", "K-Means", "DBSCAN"],
       link: "",
       github: "https://github.com/AnvayB/BeyondTheTap"
@@ -130,7 +139,7 @@ export const data = {
       title: "SkyStream – Flight Delay & Economic Loss Prediction",
       category: "Data Engineering",
       description: "Built scalable PySpark ML pipeline for big data processing, predicting U.S. flight delays and airline revenue losses.",
-      image: "/src/images/skys.jpeg",
+      image: skys,
       tags: ["Pandas", "Data Processing", "PySpark", "Apache MLlib", "Streamlit", "Big Data Analytics"],
       link: "",
       github: "https://github.com/AnvayB/SkyStream"
@@ -140,7 +149,7 @@ export const data = {
       title: "TrackFlow – Logistics and Order Management Platform",
       category: "Full-Stack",
       description: "Developed full-stack logistics platform, streamlining orders, PDF invoicing, email notifications, with scalable storage.",
-      image: "/src/images/track.png",
+      image: track,
       tags: ["TypeScript", "React", "Node.js", "AWS SES", "S3", "DynamoDB", "Microservices", "Leadership"],
       link: "",
       github: "https://github.com/AnvayB/TrackFlow"
@@ -150,7 +159,7 @@ export const data = {
       title: "San Francisco Crime Pattern Analysis",
       category: "Data Engineering",
       description: "Designed data pipelines to process historical and real-time crime data to identify crime patterns, temporal trends, and geographic distributions.",
-      image: "/src/images/sfcrime.png",
+      image: sfcrime,
       tags: ["Pandas", "Snowflake", "dbt", "Airflow", "Power BI", "Predictive Analytics"],
       link: "https://drive.google.com/file/d/1wH0xzlh3snA5-PdfeY17hwcmski6wRpJ/view?usp=sharing",
       github: ""
@@ -159,7 +168,7 @@ export const data = {
       title: 'San Jose Traffic Collision Mapping',
       category: 'Data Analytics',
       description: 'Analyzed San Jose crash data to uncover causes, patterns, and danger zones, supporting traffic safety improvements and forecasting.',
-      image: '/src/images/sjtraffic.png',
+      image: sjtraffic,
       tags: ['Pandas', 'Exploratory Data Analysis', 'Power BI', 'Tableau', 'Predictive Analytics'],
       link: 'https://drive.google.com/file/d/1gYrVsR-a6yDgWmhT1kXBhwZabDU4MXhr/view?usp=sharing',
       github: '',
@@ -169,7 +178,7 @@ export const data = {
       title: 'PlateStack',
       category: 'Full-Stack',
       description: 'Lightweight mobile application for calculating barbell plate combinations for weightlifting (metric and imperial units).',
-      image: '/src/images/platestack.png',
+      image: platestack,
       tags: ['HTML', 'CSS', 'JavaScript', 'Creatine'],
       link: 'https://anvayb.github.io/PlateStack/',
       github: 'https://github.com/AnvayB/PlateStack',

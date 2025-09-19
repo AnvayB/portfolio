@@ -21,6 +21,7 @@ import hobbyPhotographyImg from '../images/hobby-photography.jpg';
 import hobbyMusicImg from '../images/hobby-music.jpg';
 import hobbyCodingImg from '../images/hobby-coding.jpg';
 import hobbyReadingImg from '../images/hobby-reading.jpg';
+import profile from '../images/face-left.jpg';
 
 // 3D Background Component
 function ContactBackground() {
@@ -314,14 +315,14 @@ export const ContactSection = () => {
             <span className="text-gradient">Connect</span>
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-2">
-            Ready to collaborate on your next project? Let's discuss how we can bring your ideas to life
+            Ready to collaborate on your next project? <br />Let's discuss how we can bring your ideas to life!
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:h-auto">
           {/* Contact Information */}
           <motion.div
-            className="space-y-6 sm:space-y-8"
+            className="flex flex-col space-y-6 sm:space-y-8 h-full"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -375,7 +376,7 @@ export const ContactSection = () => {
                     transition={{ duration: 0.3 }}
                   >
                     <img
-                      src="/src/images/face-left.jpg"
+                      src={profile}
                       alt="Portrait"
                       className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full border-4 border-primary/20 shadow-lg glow-primary"
                     />
@@ -469,72 +470,77 @@ export const ContactSection = () => {
 
           {/* Contact Form */}
           <motion.div
+            className="flex flex-col h-full"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <Card className="glass border-border/50">
-              <CardContent className="p-4 sm:p-6 lg:p-8">
-                <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            <Card className="glass border-border/50 flex-1 flex flex-col">
+              <CardContent className="p-4 sm:p-6 lg:p-8 flex-1 flex flex-col">
+                <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col h-full">
+                  <div className="flex-1 space-y-4 sm:space-y-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="name" className="text-sm sm:text-base text-foreground">Name</Label>
+                        <Input
+                          id="name"
+                          name="user_name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                          className="bg-input/50 border-border focus:border-primary text-sm sm:text-base"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="email" className="text-sm sm:text-base text-foreground">Email</Label>
+                        <Input
+                          id="email"
+                          name="user_email"
+                          type="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          className="bg-input/50 border-border focus:border-primary text-sm sm:text-base"
+                        />
+                      </div>
+                    </div>
+
                     <div className="space-y-2">
-                      <Label htmlFor="name" className="text-sm sm:text-base text-foreground">Name</Label>
+                      <Label htmlFor="subject" className="text-sm sm:text-base text-foreground">Subject</Label>
                       <Input
-                        id="name"
-                        name="user_name"
-                        value={formData.name}
+                        id="subject"
+                        name="subject"
+                        value={formData.subject}
                         onChange={handleChange}
                         required
                         className="bg-input/50 border-border focus:border-primary text-sm sm:text-base"
                       />
                     </div>
+
                     <div className="space-y-2">
-                      <Label htmlFor="email" className="text-sm sm:text-base text-foreground">Email</Label>
-                      <Input
-                        id="email"
-                        name="user_email"
-                        type="email"
-                        value={formData.email}
+                      <Label htmlFor="message" className="text-sm sm:text-base text-foreground">Message</Label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
                         onChange={handleChange}
                         required
-                        className="bg-input/50 border-border focus:border-primary text-sm sm:text-base"
+                        rows={5}
+                        className="bg-input/50 border-border focus:border-primary resize-none text-sm sm:text-base"
                       />
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="subject" className="text-sm sm:text-base text-foreground">Subject</Label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                      className="bg-input/50 border-border focus:border-primary text-sm sm:text-base"
-                    />
+                  <div className="mt-6 sm:mt-8">
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full bg-gradient-primary text-primary-foreground hover:opacity-90 py-4 sm:py-6 text-base sm:text-lg font-semibold glow-primary disabled:opacity-50"
+                    >
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
+                    </Button>
                   </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="message" className="text-sm sm:text-base text-foreground">Message</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={5}
-                      className="bg-input/50 border-border focus:border-primary resize-none text-sm sm:text-base"
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-gradient-primary text-primary-foreground hover:opacity-90 py-4 sm:py-6 text-base sm:text-lg font-semibold glow-primary disabled:opacity-50"
-                  >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
-                  </Button>
                   
                   {/* {thanks && (
                     <div className="text-center mt-4">

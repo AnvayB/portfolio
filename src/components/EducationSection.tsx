@@ -79,7 +79,7 @@ export const EducationSection = () => {
             <span className="text-foreground"> & Certifications</span>
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-2">
-            Compiling Curiosity: Transforming learning into lasting expertise.
+            Compiling Curiosity: Transforming learning into lasting expertise
           </p>
         </motion.div>
 

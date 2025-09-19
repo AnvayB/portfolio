@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'; // ⬅️ added Animate
 import { Button } from './ui/button';
 import { ArrowDown, FileText } from 'lucide-react';
 import { ResumeRequestModal } from './ResumeRequestModal';
+import profile from '../images/face-left.jpg';
 
 // 3D Text Component with floating animation
 function FloatingText() {
@@ -128,7 +129,7 @@ export const HeroSection = () => {
 
         <div className="w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary/20 glow-primary mx-auto mt-4 sm:mt-8">
           <img
-            src="/src/images/face-left.jpg"
+            src={profile}
             alt="Profile"
             className="w-full h-full object-cover"
           />

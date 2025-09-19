@@ -202,15 +202,6 @@ export const ResumeRequestModal = ({ isOpen, onClose }: ResumeRequestModalProps)
                 <FileText className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                 Request Resume
               </DialogTitle>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="absolute right-3 top-3 sm:right-4 sm:top-4 opacity-70 hover:opacity-100 p-1.5 sm:p-2"
-                onClick={handleClose}
-                disabled={isSubmitting}
-              >
-                <X className="w-3 h-3 sm:w-4 sm:h-4" />
-              </Button>
             </DialogHeader>
 
             <motion.div
