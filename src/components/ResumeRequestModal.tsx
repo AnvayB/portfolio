@@ -23,10 +23,10 @@ export const ResumeRequestModal = ({ isOpen, onClose }: ResumeRequestModalProps)
   const { toast } = useToast();
 
   const roleOptions = useMemo(() => [
-    { value: 'data-analyst', label: 'Data Analyst', resumeFile: 'Anvay_Bhanap_Data_Analyst.pdf' },
-    { value: 'data-engineer', label: 'Data Engineer', resumeFile: 'Anvay_Bhanap_Data_Engineer.pdf' },
-    { value: 'data-science', label: 'Data Science', resumeFile: 'Anvay_Bhanap_Data_Science.pdf' },
-    { value: 'full-stack', label: 'Full-Stack', resumeFile: 'Anvay_Bhanap_Full_Stack.pdf' },
+    { value: 'data-analyst', label: 'Data Analyst', resumeFile: 'Anvay_Bhanap_Resume__DA_BA_.pdf' },
+    { value: 'data-engineer', label: 'Data Engineer', resumeFile: 'Anvay_Bhanap_Resume__DE.pdf' },
+    { value: 'data-science', label: 'Data Science', resumeFile: 'Anvay_Bhanap_Resume__DS.pdf' },
+    { value: 'full-stack', label: 'Full-Stack', resumeFile: 'Anvay_Bhanap_Resume__FullStack.pdf' },
   ], []);
 
   // Update hidden fields when email or role changes
