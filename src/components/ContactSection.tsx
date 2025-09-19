@@ -328,7 +328,28 @@ export const ContactSection = () => {
             viewport={{ once: true }}
           >
             <div>
-              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">Get in Touch</h3>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3 sm:mb-0">Get in Touch</h3>
+                <div className="flex gap-3 sm:gap-4">
+                  {socialLinks.map((social, index) => (
+                    <motion.a
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 sm:w-12 sm:h-12 glass rounded-lg flex items-center justify-center hover:glow-primary transition-all duration-300"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <social.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                    </motion.a>
+                  ))}
+                </div>
+              </div>
               <p className="text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
                 I'm always interested in hearing about new opportunities, 
                 interesting projects, and creative collaborations. Whether you're a 
@@ -443,29 +464,6 @@ export const ContactSection = () => {
                 ))}
               </div>
 
-              {/* Social Links */}
-              <div className="mt-6 sm:mt-8">
-                <h4 className="text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">Follow Me</h4>
-                <div className="flex gap-3 sm:gap-4">
-                  {socialLinks.map((social, index) => (
-                    <motion.a
-                      key={social.name}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 sm:w-12 sm:h-12 glass rounded-lg flex items-center justify-center hover:glow-primary transition-all duration-300"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <social.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-                    </motion.a>
-                  ))}
-                </div>
-              </div>
             </div>
           </motion.div>
 

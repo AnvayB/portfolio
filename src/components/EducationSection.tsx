@@ -13,28 +13,28 @@ const certifications = [
     name: 'Apache PySpark by Example',
     issuer: 'LinkedIn Learning',
     date: '2025',
-    logo: '/src/images/pyspark.jpg',
+    emoji: '⚡',
   },
   {
     id: 2,
     name: 'Docker for Data Engineers',
     issuer: 'LinkedIn Learning',
     date: '2025',
-    logo: '/images/docker-for-data-engineers.png',
+    emoji: '🐳',
   },
   {
     id: 3,
     name: 'MERN Essential Training',
     issuer: 'LinkedIn Learning',
     date: '2024',
-    logo: '/images/mern-essential-training.png',
+    emoji: '⚛️',
   },
   {
     id: 4,
     name: 'Cloud Computing Core Concepts',
     issuer: 'LinkedIn Learning',
     date: '2024',
-    logo: '/images/cloud-computing-core-concepts.png',
+    emoji: '☁️',
   },
 ];
 
@@ -196,7 +196,9 @@ export const EducationSection = () => {
               >
                 <Card className="glass border-border/50 hover:glow-primary transition-all duration-300 text-center">
                   <CardContent className="p-4 sm:p-6">
-                    <img src={cert.logo} alt={cert.name} className="h-12 sm:h-16 w-auto mx-auto mb-3 sm:mb-4" />
+                    <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">
+                      {cert.emoji}
+                    </div>
                     <h4 className="font-bold text-foreground mb-2 text-xs sm:text-sm leading-tight">
                       {cert.name}
                     </h4>
