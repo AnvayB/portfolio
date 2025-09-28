@@ -16,11 +16,11 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 // Import hobby images
-import hobbyCoffeeImg from '../images/hobby-coffee.jpg';
+import mkworld from '../images/mkworld.png';
 import hobbyPhotographyImg from '../images/hobby-photography.jpg';
-import hobbyMusicImg from '../images/hobby-music.jpg';
-import hobbyCodingImg from '../images/hobby-coding.jpg';
-import hobbyReadingImg from '../images/hobby-reading.jpg';
+import sports from '../images/racquetpaddle.png';
+import energy from '../images/energydrinks.png';
+import ai from '../images/ai.png';
 import profile from '../images/face-left.jpg';
 
 // 3D Background Component
@@ -93,9 +93,9 @@ const socialLinks = [
 const hobbies = [
   {
     id: 1,
-    image: hobbyCoffeeImg,
-    title: 'Coffee Enthusiast',
-    description: 'Third-wave coffee explorer'
+    image: mkworld,
+    title: 'Mario Kart World',
+    description: 'Improving everyday!'
   },
   {
     id: 2,
@@ -105,21 +105,21 @@ const hobbies = [
   },
   {
     id: 3,
-    image: hobbyMusicImg,
-    title: 'Music Production',
-    description: 'Electronic & ambient sounds'
+    image: sports,
+    title: 'Racquet & Paddle Sports',
+    description: 'Racquetball, Badminton, Table Tennis, etc.'
   },
   {
     id: 4,
-    image: hobbyCodingImg,
-    title: 'Open Source',
-    description: 'Contributing to community'
+    image: energy,
+    title: 'Energy Drinks',
+    description: 'Ask me about my favorite energy drinks!'
   },
   {
     id: 5,
-    image: hobbyReadingImg,
-    title: 'Reading',
-    description: 'Sci-fi & tech philosophy'
+    image: ai,
+    title: 'AI tools',
+    description: 'Love learning about new AI tools!'
   }
 ];
 
