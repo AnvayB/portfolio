@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, ChevronLeft, ChevronRight } from 'lucide-react';
 import { data } from '../data.ts';
 
 const portfolioItems = data.portfolioItems;
@@ -13,6 +13,8 @@ const categories = ['All', 'Data Analytics', 'Data Engineering', 'Data Science',
 export const PortfolioSection = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [filteredItems, setFilteredItems] = useState(portfolioItems);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(6);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -41,10 +43,24 @@ export const PortfolioSection = () => {
       } else {
         setFilteredItems(portfolioItems.filter(item => item.category === activeCategory));
       }
+      // Reset to first page when category changes
+      setCurrentPage(1);
     }, 200); // Add a slight delay for smoother transition
 
     return () => clearTimeout(timeout);
   }, [activeCategory]);
+
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentItems = filteredItems.slice(startIndex, endIndex);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    // Smooth scroll to top of portfolio section
+    sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
     <section
@@ -99,7 +115,7 @@ export const PortfolioSection = () => {
           layout
         >
           <AnimatePresence mode="popLayout">
-            {filteredItems.map((item, index) => (
+            {currentItems.map((item, index) => (
               <motion.div
                 key={item.id}
                 layout
@@ -183,6 +199,63 @@ export const PortfolioSection = () => {
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <motion.div
+            className="flex justify-center items-center gap-2 mt-12 sm:mt-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            {/* Previous Button */}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="border-border hover:border-primary disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </Button>
+
+            {/* Page Numbers */}
+            <div className="flex gap-1">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <Button
+                  key={page}
+                  variant={currentPage === page ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => handlePageChange(page)}
+                  className={`min-w-[40px] transition-all duration-300 ${
+                    currentPage === page
+                      ? 'bg-gradient-primary text-primary-foreground glow-primary'
+                      : 'border-border hover:border-primary'
+                  }`}
+                >
+                  {page}
+                </Button>
+              ))}
+            </div>
+
+            {/* Next Button */}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className="border-border hover:border-primary disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </Button>
+
+            {/* Page Info */}
+            <div className="ml-4 text-sm text-muted-foreground hidden sm:block">
+              Page {currentPage} of {totalPages} ({filteredItems.length} projects)
+            </div>
+          </motion.div>
+        )}
       </div>
     </section>
   );
