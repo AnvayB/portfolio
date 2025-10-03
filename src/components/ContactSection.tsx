@@ -356,8 +356,9 @@ export const ContactSection = () => {
                 interesting projects, and creative collaborations. Whether you're a 
                 startup looking to build something amazing or an established company 
                 needing technical expertise, let's talk! When I'm not coding, you'll 
-                find me exploring third-wave coffee, capturing landscapes through photography, 
-                producing ambient music, or diving into sci-fi philosophy.
+                find me hitting the gym, capturing moments through photography, competing in 
+                racquet sports, playing Mario Kart, exploring AI tools, and enjoying 
+                energy drinks.
               </p>
 
               {/* Portrait and Hobbies Carousel */}

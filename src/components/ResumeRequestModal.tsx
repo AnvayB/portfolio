@@ -143,6 +143,13 @@ export const ResumeRequestModal = ({ isOpen, onClose }: ResumeRequestModalProps)
         });
       } else {
         // Send resume via email (new flow)
+        // Debug: Log form data before sending
+        const formData = new FormData(formRef.current!);
+        console.log('Form data being sent to EmailJS:');
+        for (let [key, value] of formData.entries()) {
+          console.log(`${key}: ${value}`);
+        }
+        
         const result = await emailjs.sendForm(
           'service_d61vlcw',
           'template_resume_delivery', // New template for sending resume via email
