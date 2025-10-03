@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'; // ⬅️ added Animate
 import { Button } from './ui/button';
 import { ArrowDown, FileText } from 'lucide-react';
 import { ResumeRequestModal } from './ResumeRequestModal';
+import { SmoothImage } from './ui/smooth-image';
 import profile from '../images/face-left.jpg';
 
 // 3D Text Component with floating animation
@@ -126,12 +127,13 @@ export const HeroSection = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-
-        <div className="w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary/20 glow-primary mx-auto mt-4 sm:mt-8">
-          <img
+        <div className="w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 rounded-full border-4 border-primary/20 glow-primary mx-auto mt-4 sm:mt-8">
+          <SmoothImage
             src={profile}
             alt="Profile"
-            className="w-full h-full object-cover"
+            className="rounded-full"
+            containerClassName="w-full h-full rounded-full overflow-hidden"
+            placeholderClassName="rounded-full"
           />
         </div>
       </motion.div>

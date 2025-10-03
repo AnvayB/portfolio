@@ -8,6 +8,7 @@ import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
 import { InfiniteCarousel } from './ui/infinite-carousel';
+import { SmoothImage } from './ui/smooth-image';
 import { Mail, Phone, MapPin, Linkedin, Github, Coffee, Camera, Music, Code, Book } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
 import { data } from '../data.ts';
@@ -376,11 +377,15 @@ export const ContactSection = () => {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <img
-                      src={profile}
-                      alt="Portrait"
-                      className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full border-4 border-primary/20 shadow-lg glow-primary"
-                    />
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-primary/20 shadow-lg glow-primary">
+                      <SmoothImage
+                        src={profile}
+                        alt="Portrait"
+                        className="rounded-full"
+                        containerClassName="w-full h-full rounded-full overflow-hidden"
+                        placeholderClassName="rounded-full"
+                      />
+                    </div>
                   </motion.div>
 
                   {/* Hobbies Carousel */}
