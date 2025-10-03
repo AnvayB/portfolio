@@ -5,6 +5,7 @@ import track from './images/track.png';
 import sfcrime from './images/sfcrime.png';
 import sjtraffic from './images/sjtraffic.png';
 import platestack from './images/platestack.png';
+import priorityviz from './images/priorityviz.png';
 
 
 export const data = {
@@ -182,6 +183,16 @@ export const data = {
       tags: ['HTML', 'CSS', 'JavaScript', 'Creatine'],
       link: 'https://anvayb.github.io/PlateStack/',
       github: 'https://github.com/AnvayB/PlateStack',
+    },
+    {
+      id: 7,
+      title: 'PriorityViz',
+      category: 'Full-Stack',
+      description: 'Interactive task management app using pie charts to visualize and organize priorities across life areas.',
+      image: priorityviz,
+      tags: ['TypeScript', 'React', 'Node.js', 'Tailwind CSS', 'Supabase'],
+      link: 'https://priorityviz.netlify.app/',
+      github: 'https://github.com/AnvayB/PriorityViz',
     },
   ],
   contactInfo: [
